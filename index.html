@@ -1,0 +1,624 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#6f0008" />
+    <meta
+      name="description"
+      content="Thiệp mời lễ tốt nghiệp của Ngô Khánh Hoa, ngày 11 tháng 7 năm 2026 tại Hội trường Ngụy Như Kon Tum, Hà Nội."
+    />
+    <meta property="og:title" content="Graduation Invitation | Ngô Khánh Hoa" />
+    <meta
+      property="og:description"
+      content="Trân trọng mời bạn tới chung vui trong lễ tốt nghiệp của Ngô Khánh Hoa."
+    />
+    <meta property="og:image" content="anhnhaphoc.jpg" />
+    <title>Graduation Invitation | Ngô Khánh Hoa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header" aria-label="Điều hướng">
+      <a class="brand" href="#top" aria-label="Về đầu trang">K.Hoa</a>
+      <nav class="nav-links">
+        <a href="#journey">Hành trình</a>
+        <a href="#thanks">Tri ân</a>
+        <a href="#rsvp">RSVP</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-label="Thiệp mời tốt nghiệp">
+        <img class="hero-bg" src="anhnhaphoc.jpg" alt="" />
+        <div class="hero-shade"></div>
+
+        <div class="hero-content reveal">
+          <p class="eyebrow">Graduation Invitation</p>
+          <h1>Ngô Khánh Hoa</h1>
+          <p class="hero-copy">
+            Trân trọng mời bạn tới chung vui trong khoảnh khắc tốt nghiệp, khép lại một hành trình
+            đẹp và mở ra chặng đường mới.
+          </p>
+          <div class="hero-actions" aria-label="Hành động chính">
+            <a class="button primary" href="#rsvp">Xác nhận tham dự</a>
+            <button class="button secondary" type="button" id="calendarBtn">Thêm vào lịch</button>
+            <a class="button secondary" id="googleCalendarLink" target="_blank" rel="noreferrer">
+              Google Calendar
+            </a>
+          </div>
+          <form class="hero-rsvp" id="heroRsvpForm">
+            <label for="heroGuestName">Nhập họ tên để nhận thiệp riêng</label>
+            <select id="heroGuestGroup" name="guestGroup" aria-label="Nhóm khách mời">
+              <option value="friend">Bạn bè</option>
+              <option value="teacher">Thầy cô</option>
+              <option value="family">Gia đình / người thân</option>
+              <option value="guest">Khách mời</option>
+            </select>
+            <div class="hero-rsvp-row">
+              <input
+                id="heroGuestName"
+                name="guestName"
+                type="text"
+                placeholder="Họ và tên khách mời"
+                autocomplete="name"
+                required
+              />
+              <button class="button primary" type="submit">Xác nhận</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="hero-sash" aria-hidden="true">
+          <div class="sash-mini">
+            <span>Khánh Hoa</span>
+            <strong>Class of 2026</strong>
+            <small>HUS · K67-EEI</small>
+          </div>
+        </div>
+
+        <div class="countdown reveal" aria-label="Đếm ngược tới sự kiện">
+          <div>
+            <span id="days">00</span>
+            <small>ngày</small>
+          </div>
+          <div>
+            <span id="hours">00</span>
+            <small>giờ</small>
+          </div>
+          <div>
+            <span id="minutes">00</span>
+            <small>phút</small>
+          </div>
+          <div>
+            <span id="seconds">00</span>
+            <small>giây</small>
+          </div>
+        </div>
+      </section>
+
+      <section class="info-strip" id="details" aria-label="Thông tin chính">
+        <div class="strip-item reveal">
+          <span>Ngày</span>
+          <strong>11.07.2026</strong>
+        </div>
+        <div class="strip-item reveal">
+          <span>Thời gian</span>
+          <strong>13:30 - 16:00</strong>
+        </div>
+        <div class="strip-item reveal">
+          <span>Địa điểm</span>
+          <strong>Hội trường Ngụy Như Kon Tum</strong>
+        </div>
+      </section>
+
+      <section class="enrollment-section" id="journey" aria-label="Ngày đầu nhập học">
+        <div class="enrollment-media reveal">
+          <img
+            src="anhnhaphoc.jpg"
+            alt="Ảnh tập thể trong ngày chào mừng tân sinh viên"
+            loading="lazy"
+          />
+          <div class="photo-caption">
+            <span>Ngày đầu nhập học</span>
+            <strong>Nơi hành trình bắt đầu</strong>
+          </div>
+        </div>
+        <div class="enrollment-copy reveal">
+          <p class="eyebrow">First chapter</p>
+          <h2>Từ bức ảnh nhập học tới ngày khoác áo tốt nghiệp.</h2>
+          <p>
+            Có những hành trình bắt đầu bằng một tấm ảnh tập thể: nhiều gương mặt còn lạ, một căn
+            phòng đông tiếng nói và cảm giác vừa hồi hộp vừa háo hức. Từ ngày ấy tới hôm nay là
+            những năm tháng học tập, thử sức, va chạm và trưởng thành.
+          </p>
+          <p>
+            Vì vậy, ảnh nhập học được đặt thành một dấu mốc lớn trong trang này: để ngày tốt nghiệp
+            không chỉ là điểm kết, mà còn là khoảnh khắc nhìn lại nơi mọi thứ bắt đầu.
+          </p>
+        </div>
+      </section>
+
+      <section class="milestone-section" aria-label="Mốc học tập từ năm nhất tới năm cuối">
+        <div class="memory-heading reveal">
+          <p class="eyebrow">2022 - 2026</p>
+          <h2>Những cột mốc học tập được gom lại thành một hành trình.</h2>
+          <p>
+            Từ ngày đầu bước vào giảng đường, từng học bổng, từng lần được gọi tên và từng buổi lễ
+            trang trọng đã trở thành dấu mốc cho sự cố gắng bền bỉ qua từng năm.
+          </p>
+          <button
+            class="button primary milestone-toggle"
+            type="button"
+            id="milestoneToggle"
+            aria-expanded="false"
+            aria-controls="milestonePanel"
+          >
+            Xem mốc học bổng
+          </button>
+        </div>
+
+        <div class="milestone-panel" id="milestonePanel" hidden>
+          <div class="milestone-list">
+            <article class="milestone-card reveal">
+              <img src="anhthukhoadauvao.jpg" alt="Ảnh nhận danh hiệu thủ khoa đầu vào" loading="lazy" />
+              <div>
+                <span>2022</span>
+                <h3>Thủ khoa đầu vào</h3>
+                <p>Một khởi đầu đáng nhớ, mở ra bốn năm học tập nhiều kỳ vọng.</p>
+              </div>
+            </article>
+
+            <article class="milestone-card reveal">
+              <img src="hocbongadfnamnhat.jpg" alt="Ảnh nhận học bổng ADF năm nhất" loading="lazy" />
+              <div>
+                <span>Năm nhất</span>
+                <h3>Học bổng ADF</h3>
+                <p>Phần thưởng đầu tiên cho những nỗ lực trong năm học mới.</p>
+              </div>
+            </article>
+
+            <article class="milestone-card reveal">
+              <img src="anhhocbongadfnam2.jpg" alt="Ảnh nhận học bổng ADF năm hai" loading="lazy" />
+              <div>
+                <span>Năm hai</span>
+                <h3>Tiếp tục giữ nhịp</h3>
+                <p>Một năm nữa của sự kiên trì, kỷ luật và tinh thần học tập đều đặn.</p>
+              </div>
+            </article>
+
+            <article class="milestone-card reveal">
+              <img src="anhhocbongvallet2024.jpg" alt="Ảnh nhận học bổng Vallet 2024" loading="lazy" />
+              <div>
+                <span>2024</span>
+                <h3>Học bổng Vallet</h3>
+                <p>Một cột mốc ghi nhận hành trình học tập và nghiên cứu nghiêm túc.</p>
+              </div>
+            </article>
+
+            <article class="milestone-card reveal">
+              <img src="anhhocbongadfnam3.jpg" alt="Ảnh nhận học bổng ADF năm ba" loading="lazy" />
+              <div>
+                <span>Năm ba</span>
+                <h3>ADF Scholarship</h3>
+                <p>Không chỉ là thành tích, mà còn là lời nhắc rằng mọi nỗ lực đều có dấu vết.</p>
+              </div>
+            </article>
+
+            <article class="milestone-card reveal">
+              <img src="anhhocbongvallet2025.jpg" alt="Ảnh nhận học bổng Vallet 2025" loading="lazy" />
+              <div>
+                <span>2025</span>
+                <h3>Vallet 2025</h3>
+                <p>Một lần nữa được ghi nhận trước khi bước vào chặng nước rút cuối cùng.</p>
+              </div>
+            </article>
+
+            <article class="milestone-card reveal">
+              <img src="anhhocbongadfnamcuoi.jpg" alt="Ảnh nhận học bổng ADF năm cuối" loading="lazy" />
+              <div>
+                <span>Năm cuối</span>
+                <h3>ADF năm cuối</h3>
+                <p>Một dấu mốc đẹp ở đoạn cuối của hành trình đại học.</p>
+              </div>
+            </article>
+
+            <article class="milestone-card reveal">
+              <img src="anhocbongNHPnamcuoi.jpg" alt="Ảnh nhận học bổng NHP năm cuối" loading="lazy" />
+              <div>
+                <span>Năm cuối</span>
+                <h3>Học bổng NHP</h3>
+                <p>Sự ghi nhận trọn vẹn hơn cho những cố gắng trước ngày tốt nghiệp.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section invitation">
+        <div class="section-copy reveal">
+          <p class="eyebrow">Save the date</p>
+          <h2>Một buổi chiều để gặp nhau, chụp ảnh và lưu lại niềm vui.</h2>
+          <p>
+            Sự hiện diện của bạn sẽ làm ngày tốt nghiệp của Khánh Hoa thêm trọn vẹn. Hãy ghé qua,
+            gửi một nụ cười, chụp vài tấm ảnh và cùng nhau giữ lại một dấu mốc đáng nhớ.
+          </p>
+        </div>
+
+        <div class="event-panel reveal" aria-label="Chi tiết sự kiện">
+          <div class="event-row">
+            <span>Thời gian</span>
+            <strong>Thứ bảy, 11 tháng 7 năm 2026</strong>
+            <p>13h30 tới 16h00</p>
+          </div>
+          <div class="event-row">
+            <span>Địa điểm</span>
+            <strong>Hội trường Ngụy Như Kon Tum</strong>
+            <p>Số 19 Lê Thánh Tông, phường Cửa Nam, Hà Nội</p>
+          </div>
+          <div class="event-actions">
+            <a class="button primary" id="mapLink" target="_blank" rel="noreferrer">Mở bản đồ</a>
+            <a class="button quiet" id="eventGoogleCalendarLink" target="_blank" rel="noreferrer">
+              Google Calendar
+            </a>
+            <button
+              class="button quiet"
+              type="button"
+              id="mapToggleBtn"
+              aria-expanded="false"
+              aria-controls="mapPanel"
+            >
+              Bật bản đồ
+            </button>
+            <button class="button quiet" type="button" id="copyInviteBtn">Sao chép lời mời</button>
+          </div>
+          <div class="map-panel" id="mapPanel" hidden>
+            <iframe
+              id="mapFrame"
+              title="Bản đồ tới Hội trường Ngụy Như Kon Tum"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+      </section>
+
+      <section class="mark-section" id="mark" aria-label="Dấu ấn tốt nghiệp">
+        <div class="sash-stage reveal" aria-hidden="true">
+          <div class="sash-ribbon">
+            <div class="sash-neck">
+              <span>Khánh Hoa</span>
+            </div>
+            <div class="sash-leg left">
+              <span class="cap">K67-EEI</span>
+              <strong>Graduation</strong>
+              <small>2022 - 2026</small>
+            </div>
+            <div class="sash-leg right">
+              <span class="cap">HUS</span>
+              <strong>Ngô Khánh Hoa</strong>
+              <small>VNU University of Science</small>
+            </div>
+          </div>
+        </div>
+        <div class="mark-copy reveal">
+          <p class="eyebrow">Class of 2026</p>
+          <h2>Dấu mốc 2022 - 2026 trên sắc đỏ của ngày tốt nghiệp.</h2>
+          <p>
+            Một chi tiết nhỏ gợi lại những năm tháng đã đi qua: những bài học, những lần cố gắng và
+            cả niềm vui khi được đứng trong khoảnh khắc trưởng thành.
+          </p>
+        </div>
+      </section>
+
+      <section class="memory-section" aria-label="Hành trình học tập và kỷ niệm">
+        <div class="memory-heading reveal">
+          <p class="eyebrow">Journey</p>
+          <h2>Những mảnh ghép làm nên bốn năm đáng nhớ.</h2>
+          <p>
+            Có ảnh tập thể, có hoạt động khoa học, có những chuyến đi và cả những khoảnh khắc rất
+            đời thường. Mỗi tấm ảnh giữ lại một phần của hành trình trước khi bước tới ngày tốt
+            nghiệp.
+          </p>
+        </div>
+
+        <div class="memory-grid">
+          <article class="memory-card feature reveal">
+            <img
+              src="anhchiatay4namdaihoc.jpg"
+              alt="Ảnh tập thể trong buổi chia tay bốn năm đại học"
+              loading="lazy"
+            />
+            <div>
+              <span>Chặng cuối</span>
+              <h3>Chia tay bốn năm đại học</h3>
+              <p>Một tấm ảnh giữ lại cảm giác vừa vui, vừa tiếc, vừa biết rằng ai cũng sắp bước sang một hành trình mới.</p>
+            </div>
+          </article>
+
+          <article class="memory-card reveal">
+            <img
+              src="anhtruockhinghitetnamnhat.jpg"
+              alt="Ảnh tập thể trước kỳ nghỉ Tết năm nhất"
+              loading="lazy"
+            />
+            <div>
+              <span>Năm nhất</span>
+              <h3>Trước kỳ nghỉ Tết đầu tiên</h3>
+            </div>
+          </article>
+
+          <article class="memory-card reveal">
+            <img
+              src="anhdiquansuhenamnhat.jpg"
+              alt="Ảnh tập thể trong kỳ quân sự hè năm nhất"
+              loading="lazy"
+            />
+            <div>
+              <span>Quân sự</span>
+              <h3>Mùa hè năm nhất</h3>
+            </div>
+          </article>
+
+          <article class="memory-card reveal">
+            <img src="anhtatniennam2.jpg" alt="Ảnh tập thể tất niên năm hai" loading="lazy" />
+            <div>
+              <span>Năm hai</span>
+              <h3>Tất niên của một chặng đang lớn dần</h3>
+            </div>
+          </article>
+
+          <article class="memory-card reveal">
+            <img src="anhtatniennam3.jpg" alt="Ảnh tập thể tất niên năm ba" loading="lazy" />
+            <div>
+              <span>Năm ba</span>
+              <h3>Một buổi tất niên nhiều tiếng cười</h3>
+            </div>
+          </article>
+
+          <article class="memory-card reveal">
+            <img src="anhtatniennamcuoi.jpg" alt="Ảnh tập thể tất niên năm cuối" loading="lazy" />
+            <div>
+              <span>Năm cuối</span>
+              <h3>Tất niên trước ngày rẽ lối</h3>
+            </div>
+          </article>
+
+          <article class="memory-card reveal">
+            <img
+              src="anhquanquansimplescience.jpg"
+              alt="Ảnh tập thể tại chương trình Simple Science"
+              loading="lazy"
+            />
+            <div>
+              <span>Hoạt động khoa học</span>
+              <h3>Simple Science</h3>
+            </div>
+          </article>
+
+          <article class="memory-card reveal">
+            <img
+              src="anhdulichlanggombattrang2.jpg"
+              alt="Ảnh trải nghiệm làm gốm trong chuyến đi Bát Tràng"
+              loading="lazy"
+            />
+            <div>
+              <span>Bát Tràng</span>
+              <h3>Những ngày học cách làm chậm lại</h3>
+            </div>
+          </article>
+
+          <article class="memory-card tall reveal">
+            <img src="anhdichoi.jpg" alt="Khoảnh khắc đời thường trong một chuyến đi" loading="lazy" />
+            <div>
+              <span>Đời thường</span>
+              <h3>Một ngày nhẹ hơn sách vở</h3>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section timeline" aria-label="Lịch trình">
+        <div class="section-copy reveal">
+          <p class="eyebrow">Timeline</p>
+          <h2>Buổi lễ gọn gàng, đủ thời gian để chúc mừng.</h2>
+        </div>
+        <div class="timeline-list">
+          <article class="timeline-item reveal">
+            <time>13:30</time>
+            <div>
+              <h3>Đón khách</h3>
+              <p>Gặp nhau tại hội trường, chuẩn bị hoa và ảnh kỷ niệm.</p>
+            </div>
+          </article>
+          <article class="timeline-item reveal">
+            <time>14:00</time>
+            <div>
+              <h3>Lễ tốt nghiệp</h3>
+              <p>Cùng chứng kiến khoảnh khắc nhận bằng và chúc mừng.</p>
+            </div>
+          </article>
+          <article class="timeline-item reveal">
+            <time>15:15</time>
+            <div>
+              <h3>Chụp ảnh</h3>
+              <p>Lưu lại những tấm hình với gia đình, bạn bè và người thân.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="gratitude-section" id="thanks" aria-label="Lời tri ân tới thầy hướng dẫn">
+        <div class="section-copy reveal">
+          <p class="eyebrow">Lời tri ân</p>
+          <h2>Xin dành một khoảng trang trọng nhất để cảm ơn những người thầy đã dẫn đường.</h2>
+          <p>
+            Ngày tốt nghiệp không chỉ là một cột mốc cá nhân, mà còn là kết quả của sự dìu dắt,
+            định hướng và tin tưởng mà Khánh Hoa may mắn nhận được trong suốt hành trình học tập.
+          </p>
+        </div>
+
+        <div class="gratitude-list">
+          <article class="gratitude-card reveal">
+            <p class="teacher-role">Người thầy chủ nhiệm và người định hướng từ những ngày đầu</p>
+            <h3>PGS.TS Đỗ Quang Lộc</h3>
+            <p>
+              Em xin gửi lời tri ân sâu sắc tới PGS.TS Đỗ Quang Lộc, người thầy chủ nhiệm đã luôn
+              quan tâm, định hướng và dẫn dắt em từ những ngày đầu tiên còn nhiều bỡ ngỡ. Thầy không
+              chỉ cho em những gợi mở quan trọng trên con đường học tập và nghiên cứu, mà còn giúp em
+              nhìn rõ hơn cách bước đi nghiêm túc, bền bỉ và có trách nhiệm với lựa chọn của mình.
+            </p>
+            <p>
+              Sự tận tâm, sự nghiêm khắc và niềm tin mà thầy dành cho em là một điểm tựa rất lớn để
+              em có thêm động lực vượt qua từng giai đoạn khó khăn, trưởng thành hơn và đi tới ngày
+              hôm nay với lòng biết ơn thật sâu.
+            </p>
+          </article>
+
+          <article class="gratitude-card reveal">
+            <p class="teacher-role">Người trực tiếp hướng dẫn đề tài và khóa luận</p>
+            <h3>TS. Phan Hoàng Anh</h3>
+            <p>
+              Em xin chân thành cảm ơn TS. Phan Hoàng Anh, người thầy đã trực tiếp hướng dẫn, góp ý
+              và đồng hành cùng em trong quá trình thực hiện các đề tài cũng như khóa luận tốt
+              nghiệp. Từng nhận xét, từng lần chỉnh sửa và từng lời khuyên của thầy đã giúp em hiểu
+              vấn đề sâu hơn, làm việc cẩn thận hơn và biết cách hoàn thiện nghiên cứu của mình.
+            </p>
+            <p>
+              Với em, sự đồng hành của thầy là một phần rất quan trọng trong hành trình này. Em biết
+              ơn thầy vì sự kiên nhẫn, tận tình và trách nhiệm mà thầy đã dành cho em, để em có thể
+              tự tin khép lại chặng đường đại học bằng một dấu mốc thật ý nghĩa.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="rsvp-section" id="rsvp" aria-label="Xác nhận tham dự">
+        <div class="rsvp-copy reveal">
+          <p class="eyebrow">RSVP</p>
+          <h2>Một tên, một thiệp mời riêng.</h2>
+          <p>
+            Nhập họ tên để nhận thiệp mời dự lễ tốt nghiệp kèm lời cảm ơn riêng dành cho bạn.
+          </p>
+        </div>
+
+        <div class="rsvp-stack">
+          <form class="rsvp-form reveal" id="rsvpForm">
+            <label>
+              <span>Họ và tên khách mời</span>
+              <input
+                id="guestName"
+                name="guestName"
+                type="text"
+                placeholder="Ví dụ: Nguyễn Minh Anh"
+                autocomplete="name"
+                required
+              />
+            </label>
+            <label>
+              <span>Nhóm khách mời</span>
+              <select id="guestGroup" name="guestGroup">
+                <option value="friend">Bạn bè</option>
+                <option value="teacher">Thầy cô</option>
+                <option value="family">Gia đình / người thân</option>
+                <option value="guest">Khách mời</option>
+              </select>
+            </label>
+            <button class="button primary full" type="submit">Hiển thị thiệp mời</button>
+          </form>
+
+          <article class="personal-card" id="personalCard" aria-live="polite" hidden>
+            <div class="card-border">
+              <p class="card-kicker">Thiệp mời dự lễ tốt nghiệp</p>
+              <p class="card-label">Trân trọng kính mời</p>
+              <h3 id="cardGuestName">Bạn</h3>
+              <p class="card-body" id="cardInviteText">
+                Tới chung vui trong lễ tốt nghiệp của Ngô Khánh Hoa.
+              </p>
+              <div class="card-divider" aria-hidden="true"></div>
+              <dl class="card-details">
+                <div>
+                  <dt>Thời gian</dt>
+                  <dd>13h30 - 16h00 · Thứ bảy, 11.07.2026</dd>
+                </div>
+                <div>
+                  <dt>Địa điểm</dt>
+                  <dd>Hội trường Ngụy Như Kon Tum, 19 Lê Thánh Tông, Cửa Nam, Hà Nội</dd>
+                </div>
+              </dl>
+              <p class="thank-you" id="thankYouText"></p>
+              <div class="card-actions">
+                <button class="button quiet" type="button" id="copyPersonalBtn">
+                  Sao chép thiệp mời
+                </button>
+                <button class="button quiet" type="button" id="copyPersonalLinkBtn">
+                  Sao chép link thiệp
+                </button>
+                <button class="button quiet" type="button" id="printCardBtn">In / lưu PDF</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="guestbook-section" id="guestbook" aria-label="Sổ lưu bút">
+        <div class="guestbook-copy reveal">
+          <p class="eyebrow">Guestbook</p>
+          <h2>Sổ lưu bút cho ngày tốt nghiệp.</h2>
+          <p>
+            Một lời nhắn nhỏ cũng đủ để ngày này có thêm một điều đáng nhớ. Những dòng lưu bút sẽ
+            được giữ lại trên trình duyệt của bạn.
+          </p>
+        </div>
+
+        <div class="guestbook-panel reveal">
+          <form class="guestbook-form" id="guestbookForm">
+            <label>
+              <span>Tên của bạn</span>
+              <input id="guestbookName" name="guestbookName" type="text" placeholder="Ví dụ: Minh Anh" required />
+            </label>
+            <label>
+              <span>Lời nhắn</span>
+              <textarea
+                id="guestbookMessage"
+                name="guestbookMessage"
+                rows="4"
+                placeholder="Gửi Khánh Hoa một lời nhắn nhỏ"
+                required
+              ></textarea>
+            </label>
+            <button class="button primary full" type="submit">Gửi lưu bút</button>
+          </form>
+          <div class="guestbook-list" id="guestbookList" aria-live="polite"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Ngô Khánh Hoa · Graduation Ceremony · 11.07.2026</p>
+    </footer>
+
+    <button class="music-toggle" type="button" id="musicToggle" aria-pressed="false">
+      Nhạc nền
+    </button>
+    <canvas class="confetti-canvas" id="confettiCanvas" aria-hidden="true"></canvas>
+
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Xem ảnh" hidden>
+      <button class="lightbox-close" type="button" id="lightboxClose" aria-label="Đóng ảnh">×</button>
+      <button class="lightbox-nav prev" type="button" id="lightboxPrev" aria-label="Ảnh trước">‹</button>
+      <figure>
+        <img id="lightboxImage" alt="" />
+        <figcaption id="lightboxCaption"></figcaption>
+      </figure>
+      <button class="lightbox-nav next" type="button" id="lightboxNext" aria-label="Ảnh tiếp theo">›</button>
+    </div>
+
+    <div class="toast" role="status" aria-live="polite" id="toast">Đã sao chép</div>
+    <script src="script.js"></script>
+  </body>
+</html>
