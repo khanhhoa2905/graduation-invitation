@@ -37,7 +37,7 @@ const thankYouNotesByGroup = {
 };
 
 const target = new Date(eventInfo.start);
-const inviteCardImagePath = "optimized/anhchandung.jpg";
+const inviteCardImagePath = "optimized/anhchandung.webp";
 const countdownFields = {
   days: document.querySelector("#days"),
   hours: document.querySelector("#hours"),
@@ -55,6 +55,11 @@ function normalizeName(value) {
   return String(value || "")
     .replace(/\s+/g, " ")
     .trim();
+}
+
+function isValidGuestName(value) {
+  const name = normalizeName(value);
+  return name.length >= 2 && /\p{L}/u.test(name);
 }
 
 function normalizeGroup(value) {
@@ -497,8 +502,8 @@ function renderPersonalCard(name, options = {}) {
   const cardInviteText = document.querySelector("#cardInviteText");
   const thankYouText = document.querySelector("#thankYouText");
 
-  if (!guestName) {
-    showToast("Bạn nhập họ tên trước nhé");
+  if (!isValidGuestName(guestName)) {
+    showToast("Bạn nhập đầy đủ họ tên nhé");
     return;
   }
 
@@ -527,20 +532,52 @@ function setupRsvp() {
   const heroForm = document.querySelector("#heroRsvpForm");
   const heroGuestNameInput = document.querySelector("#heroGuestName");
   const heroGuestGroupInput = document.querySelector("#heroGuestGroup");
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const heroSubmitBtn = heroForm.querySelector('button[type="submit"]');
   const copyInviteBtn = document.querySelector("#copyInviteBtn");
   const calendarBtn = document.querySelector("#calendarBtn");
   const personalCard = document.querySelector("#personalCard");
   const closePersonalCardBtn = document.querySelector("#closePersonalCardBtn");
+  const editCardBtn = document.querySelector("#editCardBtn");
   const downloadCardBtn = document.querySelector("#downloadCardBtn");
+  let activeNameInput = heroGuestNameInput;
 
   function closePersonalCard() {
     personalCard.hidden = true;
+  }
+
+  function setSubmitLoading(button, isLoading) {
+    if (!button) {
+      return;
+    }
+
+    button.disabled = isLoading;
+    button.textContent = isLoading ? "Đang tạo thiệp..." : button.dataset.defaultText;
+  }
+
+  function handleInviteSubmit(nameInput, groupInput, button) {
+    const guestName = normalizeName(nameInput.value);
+    activeNameInput = nameInput;
+
+    if (!isValidGuestName(guestName)) {
+      showToast("Bạn nhập đầy đủ họ tên nhé");
+      nameInput.focus();
+      return;
+    }
+
+    setSubmitLoading(button, true);
+    window.setTimeout(() => {
+      renderPersonalCard(guestName, { group: groupInput.value });
+      setSubmitLoading(button, false);
+    }, 360);
   }
 
   form.reset();
   heroForm.reset();
   guestGroupInput.value = "friend";
   heroGuestGroupInput.value = "friend";
+  submitBtn.dataset.defaultText = submitBtn.textContent;
+  heroSubmitBtn.dataset.defaultText = heroSubmitBtn.textContent;
 
   copyInviteBtn.addEventListener("click", async () => {
     await copyText(buildInviteText());
@@ -551,12 +588,18 @@ function setupRsvp() {
 
   form.addEventListener("submit", (event) => {
     event.preventDefault();
-    renderPersonalCard(guestNameInput.value, { group: guestGroupInput.value });
+    handleInviteSubmit(guestNameInput, guestGroupInput, submitBtn);
   });
 
   heroForm.addEventListener("submit", (event) => {
     event.preventDefault();
-    renderPersonalCard(heroGuestNameInput.value, { group: heroGuestGroupInput.value });
+    handleInviteSubmit(heroGuestNameInput, heroGuestGroupInput, heroSubmitBtn);
+  });
+
+  editCardBtn.addEventListener("click", () => {
+    closePersonalCard();
+    activeNameInput.focus();
+    activeNameInput.select();
   });
 
   downloadCardBtn.addEventListener("click", async () => {
@@ -601,6 +644,7 @@ function setupRsvp() {
 }
 
 function setupYearTimeline() {
+  const yearNav = document.querySelector(".year-nav");
   const tabs = Array.from(document.querySelectorAll(".year-tab"));
   const panels = Array.from(document.querySelectorAll(".year-block[data-year]"));
 
@@ -609,6 +653,13 @@ function setupYearTimeline() {
   }
 
   function activateYear(year) {
+    const activeIndex = Math.max(0, tabs.findIndex((tab) => tab.dataset.yearTarget === year));
+    const progress = tabs.length > 1 ? (activeIndex / (tabs.length - 1)) * 80 : 0;
+
+    if (yearNav) {
+      yearNav.style.setProperty("--timeline-progress", `${progress}%`);
+    }
+
     tabs.forEach((tab) => {
       const isActive = tab.dataset.yearTarget === year;
       tab.classList.toggle("is-active", isActive);
