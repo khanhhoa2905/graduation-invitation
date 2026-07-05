@@ -198,14 +198,6 @@ function buildPersonalInviteText(name, group, thankIndex) {
   ].join("\n");
 }
 
-function getPersonalInviteUrl(name, group, thankIndex) {
-  const url = new URL(window.location.href);
-  url.searchParams.set("guest", name);
-  url.searchParams.set("group", normalizeGroup(group));
-  url.searchParams.set("thanks", String(thankIndex));
-  return url.toString();
-}
-
 function loadImage(src) {
   return new Promise((resolve, reject) => {
     const image = new Image();
@@ -472,10 +464,6 @@ function setupMapAndCalendar() {
   });
 }
 
-function updateGuestUrl(name, group, thankIndex) {
-  window.history.replaceState({}, "", getPersonalInviteUrl(name, group, thankIndex));
-}
-
 function syncGuestInputs(name, group) {
   const guestNameInput = document.querySelector("#guestName");
   const heroGuestNameInput = document.querySelector("#heroGuestName");
@@ -527,10 +515,6 @@ function renderPersonalCard(name, options = {}) {
   card.classList.add("reveal", "visible");
   syncGuestInputs(guestName, group);
 
-  if (options.updateUrl !== false) {
-    updateGuestUrl(guestName, group, thankIndex);
-  }
-
   if (options.confetti !== false) {
     launchConfetti();
   }
@@ -552,6 +536,11 @@ function setupRsvp() {
   function closePersonalCard() {
     personalCard.hidden = true;
   }
+
+  form.reset();
+  heroForm.reset();
+  guestGroupInput.value = "friend";
+  heroGuestGroupInput.value = "friend";
 
   copyInviteBtn.addEventListener("click", async () => {
     await copyText(buildInviteText());
@@ -606,19 +595,8 @@ function setupRsvp() {
     }
   });
 
-  const params = new URLSearchParams(window.location.search);
-  const guestFromUrl = normalizeName(params.get("guest"));
-  if (guestFromUrl) {
-    const group = normalizeGroup(params.get("group"));
-    const thankParam = params.get("thanks");
-    const thankIndex = normalizeThankIndex(thankParam, group);
-    renderPersonalCard(guestFromUrl, {
-      group,
-      thankIndex,
-      scroll: false,
-      updateUrl: thankParam === null || !params.get("group"),
-      confetti: false,
-    });
+  if (window.location.search) {
+    window.history.replaceState({}, "", `${window.location.pathname}${window.location.hash}`);
   }
 }
 
