@@ -190,8 +190,66 @@
           </div>
         </div>
 
+        <div class="year-nav reveal" role="tablist" aria-label="Chọn năm trong hành trình 2022 tới 2026">
+          <button
+            class="year-tab is-active"
+            type="button"
+            role="tab"
+            aria-selected="true"
+            aria-controls="year-2022"
+            data-year-target="2022"
+          >
+            <span>2022</span>
+            <small>Nhập học</small>
+          </button>
+          <button
+            class="year-tab"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            aria-controls="year-2023"
+            data-year-target="2023"
+          >
+            <span>2023</span>
+            <small>Năm nhất</small>
+          </button>
+          <button
+            class="year-tab"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            aria-controls="year-2024"
+            data-year-target="2024"
+          >
+            <span>2024</span>
+            <small>Năm hai</small>
+          </button>
+          <button
+            class="year-tab"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            aria-controls="year-2025"
+            data-year-target="2025"
+          >
+            <span>2025</span>
+            <small>Năm ba</small>
+          </button>
+          <button
+            class="year-tab"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            aria-controls="year-2026"
+            data-year-target="2026"
+          >
+            <span>2026</span>
+            <small>Tốt nghiệp</small>
+          </button>
+        </div>
+
         <div class="year-timeline">
-          <article class="year-block reveal">
+          <article class="year-block reveal is-active" id="year-2022" data-year="2022" role="tabpanel">
             <div class="year-marker"><time>2022</time></div>
             <div class="year-card">
               <div class="year-gallery">
@@ -203,7 +261,10 @@
                     decoding="async"
                     data-caption="2022 - Ngày nhập học, bức ảnh mở đầu hành trình đại học"
                   />
-                  <figcaption>Ngày nhập học</figcaption>
+                  <figcaption>
+                    <strong>Ngày nhập học</strong>
+                    <span>Bức ảnh đầu tiên của hành trình đại học, khi mọi thứ còn mới và đầy háo hức.</span>
+                  </figcaption>
                 </figure>
                 <figure>
                   <img
@@ -213,7 +274,10 @@
                     decoding="async"
                     data-caption="2022 - Thủ khoa đầu vào, một khởi đầu nhiều kỳ vọng"
                   />
-                  <figcaption>Thủ khoa đầu vào</figcaption>
+                  <figcaption>
+                    <strong>Thủ khoa đầu vào</strong>
+                    <span>Một dấu mốc mở đầu, nhắc Hoa giữ nhịp cố gắng nghiêm túc ngay từ năm đầu.</span>
+                  </figcaption>
                 </figure>
               </div>
               <div class="year-copy">
@@ -228,7 +292,7 @@
             </div>
           </article>
 
-          <article class="year-block reveal">
+          <article class="year-block reveal" id="year-2023" data-year="2023" role="tabpanel" aria-hidden="true">
             <div class="year-marker"><time>2023</time></div>
             <div class="year-card">
               <div class="year-gallery">
@@ -240,7 +304,10 @@
                     decoding="async"
                     data-caption="2023 - Mùa hè quân sự năm nhất"
                   />
-                  <figcaption>Mùa hè quân sự</figcaption>
+                  <figcaption>
+                    <strong>Mùa hè quân sự</strong>
+                    <span>Một mùa hè nhiều trải nghiệm tập thể, thêm bạn bè và thêm những câu chuyện để nhớ.</span>
+                  </figcaption>
                 </figure>
                 <figure>
                   <img
@@ -250,7 +317,10 @@
                     decoding="async"
                     data-caption="2023 - Trước kỳ nghỉ Tết đầu tiên của năm nhất"
                   />
-                  <figcaption>Tết năm nhất</figcaption>
+                  <figcaption>
+                    <strong>Tết năm nhất</strong>
+                    <span>Khoảnh khắc trước kỳ nghỉ đầu tiên, khi lớp đã bắt đầu thân thuộc hơn rất nhiều.</span>
+                  </figcaption>
                 </figure>
               </div>
               <div class="year-copy">
@@ -265,7 +335,7 @@
             </div>
           </article>
 
-          <article class="year-block reveal">
+          <article class="year-block reveal" id="year-2024" data-year="2024" role="tabpanel" aria-hidden="true">
             <div class="year-marker"><time>2024</time></div>
             <div class="year-card">
               <div class="year-gallery">
@@ -277,7 +347,10 @@
                     decoding="async"
                     data-caption="2024 - Tất niên năm hai, khi mọi người đã thân thuộc hơn"
                   />
-                  <figcaption>Tất niên năm hai</figcaption>
+                  <figcaption>
+                    <strong>Tất niên năm hai</strong>
+                    <span>Một buổi tối để nhìn lại năm hai, khi việc học và tình bạn đều đã vào guồng.</span>
+                  </figcaption>
                 </figure>
                 <figure>
                   <img
@@ -287,7 +360,10 @@
                     decoding="async"
                     data-caption="2024 - Chuyến đi Bát Tràng, một ngày học cách làm chậm lại"
                   />
-                  <figcaption>Bát Tràng</figcaption>
+                  <figcaption>
+                    <strong>Bát Tràng</strong>
+                    <span>Một chuyến đi nhẹ nhàng, để tạm rời sách vở và giữ lại một nhịp sống chậm hơn.</span>
+                  </figcaption>
                 </figure>
               </div>
               <div class="year-copy">
@@ -301,7 +377,7 @@
             </div>
           </article>
 
-          <article class="year-block reveal">
+          <article class="year-block reveal" id="year-2025" data-year="2025" role="tabpanel" aria-hidden="true">
             <div class="year-marker"><time>2025</time></div>
             <div class="year-card">
               <div class="year-gallery">
@@ -313,7 +389,10 @@
                     decoding="async"
                     data-caption="2025 - Simple Science, một dấu ấn hoạt động khoa học"
                   />
-                  <figcaption>Simple Science</figcaption>
+                  <figcaption>
+                    <strong>Simple Science</strong>
+                    <span>Một dấu ấn hoạt động khoa học, nơi Hoa học cách tự tin hơn với điều mình theo đuổi.</span>
+                  </figcaption>
                 </figure>
                 <figure>
                   <img
@@ -323,7 +402,10 @@
                     decoding="async"
                     data-caption="2025 - Tất niên năm ba, một buổi tối nhiều tiếng cười"
                   />
-                  <figcaption>Tất niên năm ba</figcaption>
+                  <figcaption>
+                    <strong>Tất niên năm ba</strong>
+                    <span>Một buổi tất niên nhiều tiếng cười, trước khi bước vào chặng nước rút của năm cuối.</span>
+                  </figcaption>
                 </figure>
               </div>
               <div class="year-copy">
@@ -338,7 +420,7 @@
             </div>
           </article>
 
-          <article class="year-block reveal">
+          <article class="year-block reveal" id="year-2026" data-year="2026" role="tabpanel" aria-hidden="true">
             <div class="year-marker"><time>2026</time></div>
             <div class="year-card">
               <div class="year-gallery">
@@ -350,7 +432,10 @@
                     decoding="async"
                     data-caption="2026 - Chia tay bốn năm đại học"
                   />
-                  <figcaption>Chia tay bốn năm</figcaption>
+                  <figcaption>
+                    <strong>Chia tay bốn năm</strong>
+                    <span>Tấm ảnh gom lại rất nhiều điều: vui, tiếc, biết ơn và sẵn sàng bước tiếp.</span>
+                  </figcaption>
                 </figure>
                 <figure>
                   <img
@@ -360,7 +445,10 @@
                     decoding="async"
                     data-caption="2026 - Tất niên năm cuối trước ngày rẽ lối"
                   />
-                  <figcaption>Tất niên năm cuối</figcaption>
+                  <figcaption>
+                    <strong>Tất niên năm cuối</strong>
+                    <span>Một buổi tối trước ngày rẽ lối, khi bốn năm đại học đã thật sự thành kỷ niệm.</span>
+                  </figcaption>
                 </figure>
               </div>
               <div class="year-copy">
@@ -793,7 +881,15 @@
             <button class="button primary full" type="submit">Hiển thị thiệp mời</button>
           </form>
 
-          <article class="personal-card" id="personalCard" aria-live="polite" hidden>
+          <article
+            class="personal-card"
+            id="personalCard"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="cardGuestName"
+            hidden
+          >
+            <button class="card-close" type="button" id="closePersonalCardBtn" aria-label="Đóng thiệp mời">×</button>
             <div class="card-border">
               <p class="card-kicker">Thiệp mời dự lễ tốt nghiệp</p>
               <div class="card-seal" aria-hidden="true">KH</div>

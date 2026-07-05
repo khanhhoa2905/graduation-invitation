@@ -295,14 +295,11 @@ function renderPersonalCard(name, options = {}) {
   card.dataset.thankIndex = String(thankIndex);
   card.hidden = false;
   card.classList.add("reveal", "visible");
+  document.body.style.overflow = "hidden";
   syncGuestInputs(guestName, group);
 
   if (options.updateUrl !== false) {
     updateGuestUrl(guestName, group, thankIndex);
-  }
-
-  if (options.scroll !== false) {
-    card.scrollIntoView({ behavior: "smooth", block: "center" });
   }
 
   if (options.confetti !== false) {
@@ -323,6 +320,12 @@ function setupRsvp() {
   const copyPersonalLinkBtn = document.querySelector("#copyPersonalLinkBtn");
   const printCardBtn = document.querySelector("#printCardBtn");
   const personalCard = document.querySelector("#personalCard");
+  const closePersonalCardBtn = document.querySelector("#closePersonalCardBtn");
+
+  function closePersonalCard() {
+    personalCard.hidden = true;
+    document.body.style.overflow = "";
+  }
 
   copyInviteBtn.addEventListener("click", async () => {
     await copyText(buildInviteText());
@@ -371,6 +374,19 @@ function setupRsvp() {
     window.print();
   });
 
+  closePersonalCardBtn.addEventListener("click", closePersonalCard);
+  personalCard.addEventListener("click", (event) => {
+    if (event.target === personalCard) {
+      closePersonalCard();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && !personalCard.hidden) {
+      closePersonalCard();
+    }
+  });
+
   const params = new URLSearchParams(window.location.search);
   const guestFromUrl = normalizeName(params.get("guest"));
   if (guestFromUrl) {
@@ -385,6 +401,50 @@ function setupRsvp() {
       confetti: false,
     });
   }
+}
+
+function setupYearTimeline() {
+  const tabs = Array.from(document.querySelectorAll(".year-tab"));
+  const panels = Array.from(document.querySelectorAll(".year-block[data-year]"));
+
+  if (!tabs.length || !panels.length) {
+    return;
+  }
+
+  function activateYear(year) {
+    tabs.forEach((tab) => {
+      const isActive = tab.dataset.yearTarget === year;
+      tab.classList.toggle("is-active", isActive);
+      tab.setAttribute("aria-selected", String(isActive));
+    });
+
+    panels.forEach((panel) => {
+      const isActive = panel.dataset.year === year;
+      panel.classList.toggle("is-active", isActive);
+      panel.setAttribute("aria-hidden", String(!isActive));
+
+      if (isActive) {
+        panel.classList.add("visible");
+      }
+    });
+  }
+
+  tabs.forEach((tab, index) => {
+    tab.addEventListener("click", () => activateYear(tab.dataset.yearTarget));
+    tab.addEventListener("keydown", (event) => {
+      if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") {
+        return;
+      }
+
+      event.preventDefault();
+      const step = event.key === "ArrowRight" ? 1 : -1;
+      const nextIndex = (index + step + tabs.length) % tabs.length;
+      tabs[nextIndex].focus();
+      activateYear(tabs[nextIndex].dataset.yearTarget);
+    });
+  });
+
+  activateYear(tabs.find((tab) => tab.classList.contains("is-active"))?.dataset.yearTarget || tabs[0].dataset.yearTarget);
 }
 
 function setupReveal() {
@@ -688,6 +748,7 @@ function launchConfetti() {
 updateCountdown();
 setupMapAndCalendar();
 setupRsvp();
+setupYearTimeline();
 setupReveal();
 setupMilestoneToggle();
 setupLightbox();
