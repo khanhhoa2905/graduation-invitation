@@ -500,8 +500,7 @@ h3 {
 .memory-section,
 .gratitude-section,
 .guestbook-section,
-.timeline,
-.rsvp-section {
+.timeline {
   content-visibility: auto;
   contain-intrinsic-size: 920px;
 }
