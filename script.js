@@ -295,7 +295,6 @@ function renderPersonalCard(name, options = {}) {
   card.dataset.thankIndex = String(thankIndex);
   card.hidden = false;
   card.classList.add("reveal", "visible");
-  document.body.style.overflow = "hidden";
   syncGuestInputs(guestName, group);
 
   if (options.updateUrl !== false) {
@@ -324,7 +323,6 @@ function setupRsvp() {
 
   function closePersonalCard() {
     personalCard.hidden = true;
-    document.body.style.overflow = "";
   }
 
   copyInviteBtn.addEventListener("click", async () => {
@@ -703,7 +701,7 @@ function launchConfetti() {
   const canvas = document.querySelector("#confettiCanvas");
   const context = canvas.getContext("2d");
   const colors = ["#720007", "#c2923f", "#0e5964", "#fffdf8"];
-  const pieces = Array.from({ length: 90 }, () => ({
+  const pieces = Array.from({ length: 42 }, () => ({
     x: Math.random() * window.innerWidth,
     y: -20 - Math.random() * window.innerHeight * 0.35,
     size: 6 + Math.random() * 8,
@@ -735,7 +733,7 @@ function launchConfetti() {
       context.restore();
     });
 
-    if (now - startedAt < 1800) {
+    if (now - startedAt < 1100) {
       requestAnimationFrame(frame);
     } else {
       context.clearRect(0, 0, window.innerWidth, window.innerHeight);

@@ -1333,13 +1333,10 @@ h3 {
   display: grid;
   place-items: center;
   overflow-y: auto;
-  padding: 28px;
+  padding: 22px;
   color: var(--ink);
-  background:
-    linear-gradient(145deg, rgba(50, 0, 4, 0.78), rgba(7, 51, 56, 0.72)),
-    rgba(33, 26, 26, 0.56);
-  backdrop-filter: blur(12px);
-  animation: cardOverlayIn 220ms ease both;
+  background: rgba(33, 26, 26, 0.66);
+  animation: cardOverlayIn 160ms ease both;
 }
 
 .card-close {
@@ -1354,65 +1351,116 @@ h3 {
   border: 1px solid rgba(255, 253, 248, 0.34);
   border-radius: 8px;
   color: var(--white);
-  background: rgba(50, 0, 4, 0.56);
+  background: rgba(50, 0, 4, 0.74);
   cursor: pointer;
   font-size: 2rem;
   line-height: 1;
-  backdrop-filter: blur(10px);
 }
 
 .card-border {
   position: relative;
   overflow: hidden;
-  width: min(720px, 100%);
+  width: min(760px, 100%);
   margin: auto;
-  padding: clamp(26px, 5vw, 42px);
-  border: 1px solid rgba(114, 0, 7, 0.26);
+  padding: clamp(24px, 4vw, 38px);
+  border: 1px solid rgba(194, 146, 63, 0.38);
   border-radius: 8px;
   background:
-    linear-gradient(180deg, rgba(255, 253, 248, 0.94), rgba(255, 253, 248, 0.82)),
-    repeating-linear-gradient(135deg, rgba(194, 146, 63, 0.12) 0 1px, transparent 1px 18px);
-  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.34);
-  animation: cardSurfaceIn 360ms ease both;
+    linear-gradient(90deg, rgba(114, 0, 7, 0.08), transparent 26%, transparent 74%, rgba(14, 89, 100, 0.08)),
+    linear-gradient(180deg, rgba(255, 253, 248, 0.98), rgba(255, 249, 235, 0.95)),
+    repeating-linear-gradient(135deg, rgba(194, 146, 63, 0.1) 0 1px, transparent 1px 20px);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.24);
+  animation: cardSurfaceIn 220ms ease both;
 }
 
 .card-border::before,
 .card-border::after {
   content: "";
   position: absolute;
-  left: 20px;
-  right: 20px;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(194, 146, 63, 0.86), transparent);
+  pointer-events: none;
 }
 
 .card-border::before {
-  top: 18px;
+  inset: 12px;
+  border: 1px solid rgba(194, 146, 63, 0.36);
+  border-radius: 8px;
 }
 
 .card-border::after {
-  bottom: 18px;
+  inset: 20px;
+  border: 1px solid rgba(114, 0, 7, 0.12);
+  border-radius: 8px;
+}
+
+.card-ribbon {
+  position: absolute;
+  z-index: 1;
+  top: 22px;
+  left: -58px;
+  width: 210px;
+  padding: 9px 18px;
+  color: var(--white);
+  background: linear-gradient(135deg, var(--wine), #9f0711);
+  box-shadow: 0 10px 24px rgba(50, 0, 4, 0.2);
+  text-align: center;
+  transform: rotate(-38deg);
+}
+
+.card-ribbon span,
+.card-ribbon strong {
+  display: block;
+}
+
+.card-ribbon span {
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.card-ribbon strong {
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+}
+
+.card-head,
+.card-main,
+.card-details,
+.thank-you-box,
+.card-signature,
+.card-actions {
+  position: relative;
+  z-index: 1;
+}
+
+.card-head {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  margin-bottom: 18px;
 }
 
 .card-seal {
-  width: 58px;
-  height: 58px;
+  width: 72px;
+  height: 72px;
   display: grid;
   place-items: center;
-  margin: 0 auto 14px;
-  border: 1px solid rgba(114, 0, 7, 0.34);
+  border: 2px solid rgba(114, 0, 7, 0.48);
   border-radius: 50%;
-  color: var(--wine);
-  background: rgba(255, 253, 248, 0.72);
+  color: var(--white);
+  background:
+    linear-gradient(145deg, rgba(114, 0, 7, 0.98), rgba(14, 89, 100, 0.92));
   font-family: "Playfair Display", Georgia, serif;
-  font-size: 1.28rem;
+  font-size: 1.44rem;
   font-weight: 800;
   letter-spacing: 0;
+  box-shadow: 0 12px 28px rgba(50, 0, 4, 0.2);
 }
 
 .card-kicker,
-.card-label {
-  margin-bottom: 12px;
+.card-label,
+.card-date {
+  margin: 0;
   text-align: center;
   font-weight: 800;
   letter-spacing: 0.12em;
@@ -1421,7 +1469,7 @@ h3 {
 
 .card-kicker {
   color: var(--wine);
-  font-size: 0.82rem;
+  font-size: 0.76rem;
 }
 
 .card-label {
@@ -1429,41 +1477,77 @@ h3 {
   font-size: 0.72rem;
 }
 
+.card-date {
+  color: var(--teal);
+  font-size: 0.72rem;
+}
+
+.card-main {
+  padding: 12px 0 6px;
+  text-align: center;
+}
+
 .personal-card h3 {
-  margin: 0 auto 16px;
+  margin: 2px auto 14px;
   color: var(--wine);
   text-align: center;
   font-family: "Playfair Display", Georgia, serif;
-  font-size: clamp(2rem, 7vw, 4rem);
+  font-size: clamp(2.6rem, 7vw, 5rem);
   line-height: 1;
 }
 
 .card-body {
-  max-width: 520px;
+  max-width: 560px;
   margin: 0 auto 22px;
-  color: var(--muted);
+  color: var(--teal-deep);
   text-align: center;
   font-size: 1.05rem;
+  font-weight: 700;
 }
 
 .card-divider {
-  width: 110px;
-  height: 2px;
-  margin: 24px auto;
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: min(360px, 78%);
+  height: 20px;
+  margin: 18px auto 22px;
+}
+
+.card-divider::before {
+  content: "";
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(194, 146, 63, 0.9), transparent);
+}
+
+.card-divider span {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
   background: var(--gold);
+  box-shadow:
+    -22px 0 0 rgba(194, 146, 63, 0.42),
+    22px 0 0 rgba(194, 146, 63, 0.42);
 }
 
 .card-details {
   display: grid;
-  gap: 16px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
   margin: 0 0 24px;
 }
 
 .card-details div {
   display: grid;
-  gap: 4px;
-  padding-bottom: 14px;
-  border-bottom: 1px solid rgba(33, 26, 26, 0.12);
+  align-content: start;
+  gap: 5px;
+  min-height: 118px;
+  padding: 16px;
+  border: 1px solid rgba(114, 0, 7, 0.16);
+  border-radius: 8px;
+  background: rgba(255, 253, 248, 0.74);
 }
 
 .card-details dt {
@@ -1478,24 +1562,48 @@ h3 {
   margin: 0;
   color: var(--ink);
   font-weight: 700;
+  line-height: 1.35;
+}
+
+.card-details small {
+  color: var(--muted);
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.thank-you-box {
+  margin-bottom: 22px;
+  padding: 18px 20px;
+  border: 1px solid rgba(14, 89, 100, 0.18);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(14, 89, 100, 0.08), rgba(194, 146, 63, 0.08)),
+    rgba(255, 253, 248, 0.82);
+}
+
+.thank-you-box span {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--teal);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 .thank-you {
-  margin: 0 0 24px;
-  padding: 18px;
+  margin: 0;
+  padding: 0;
   color: var(--teal-deep);
-  border-left: 4px solid var(--teal);
-  border-radius: 0 8px 8px 0;
-  background: rgba(14, 89, 100, 0.08);
   font-weight: 600;
 }
 
 .card-signature {
-  margin: -4px 0 22px;
+  margin: 0 0 22px;
   color: var(--wine);
   text-align: center;
   font-family: "Playfair Display", Georgia, serif;
-  font-size: 1.24rem;
+  font-size: 1.46rem;
   font-weight: 800;
 }
 
@@ -2107,6 +2215,21 @@ h3 {
 
   .personal-card {
     padding: 16px;
+  }
+
+  .card-border {
+    padding: 26px 18px 20px;
+  }
+
+  .card-ribbon {
+    top: 18px;
+    left: -64px;
+    width: 190px;
+    padding: 7px 16px;
+  }
+
+  .card-details {
+    grid-template-columns: 1fr;
   }
 
   .card-close {
