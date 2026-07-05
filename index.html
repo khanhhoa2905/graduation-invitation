@@ -35,7 +35,7 @@
 
     <main id="top">
       <section class="hero" aria-label="Thiệp mời tốt nghiệp">
-        <img class="hero-bg" src="anhnhaphoc.jpg" alt="" />
+        <img class="hero-bg" src="anhnhaphoc.jpg" alt="" decoding="async" fetchpriority="high" />
         <div class="hero-shade"></div>
 
         <div class="hero-content reveal">
@@ -45,6 +45,11 @@
             Trân trọng mời bạn tới chung vui trong khoảnh khắc tốt nghiệp, khép lại một hành trình
             đẹp và mở ra chặng đường mới.
           </p>
+          <div class="hero-yearline" aria-label="Hành trình từ 2022 tới 2026">
+            <span>2022</span>
+            <i aria-hidden="true"></i>
+            <span>2026</span>
+          </div>
           <div class="hero-actions" aria-label="Hành động chính">
             <a class="button primary" href="#rsvp">Xác nhận tham dự</a>
             <button class="button secondary" type="button" id="calendarBtn">Thêm vào lịch</button>
@@ -123,6 +128,8 @@
             src="anhnhaphoc.jpg"
             alt="Ảnh tập thể trong ngày chào mừng tân sinh viên"
             loading="lazy"
+            decoding="async"
+            data-caption="2022 - Ngày đầu nhập học, nơi hành trình bắt đầu"
           />
           <div class="photo-caption">
             <span>Ngày đầu nhập học</span>
@@ -144,13 +151,14 @@
         </div>
       </section>
 
-      <section class="milestone-section" aria-label="Mốc học tập từ năm nhất tới năm cuối">
-        <div class="memory-heading reveal">
-          <p class="eyebrow">2022 - 2026</p>
-          <h2>Những cột mốc học tập được gom lại thành một hành trình.</h2>
+      <section class="journey-timeline-section" aria-label="Trục thời gian 2022 tới 2026">
+        <div class="journey-heading reveal">
+          <p class="eyebrow">Timeline 2022 - 2026</p>
+          <h2>Bốn năm đại học được kể lại như một trục thời gian.</h2>
           <p>
-            Từ ngày đầu bước vào giảng đường, từng học bổng, từng lần được gọi tên và từng buổi lễ
-            trang trọng đã trở thành dấu mốc cho sự cố gắng bền bỉ qua từng năm.
+            Từ ngày nhập học, những buổi đầu còn bỡ ngỡ, tới các mùa học bổng, hoạt động khoa học và
+            khoảnh khắc chia tay năm cuối. Mỗi năm là một đoạn ký ức, nối lại thành hành trình EEI
+            trước ngày tốt nghiệp.
           </p>
           <button
             class="button primary milestone-toggle"
@@ -163,10 +171,221 @@
           </button>
         </div>
 
+        <div class="journey-stats reveal" aria-label="Các con số của hành trình">
+          <div>
+            <strong>2022</strong>
+            <span>Ngày nhập học</span>
+          </div>
+          <div>
+            <strong>4 năm</strong>
+            <span>EEI - K67</span>
+          </div>
+          <div>
+            <strong>8+</strong>
+            <span>Mốc thành tích</span>
+          </div>
+          <div>
+            <strong>2026</strong>
+            <span>Ngày tốt nghiệp</span>
+          </div>
+        </div>
+
+        <div class="year-timeline">
+          <article class="year-block reveal">
+            <div class="year-marker"><time>2022</time></div>
+            <div class="year-card">
+              <div class="year-gallery">
+                <figure>
+                  <img
+                    src="anhnhaphoc.jpg"
+                    alt="Ảnh tập thể trong ngày nhập học"
+                    loading="lazy"
+                    decoding="async"
+                    data-caption="2022 - Ngày nhập học, bức ảnh mở đầu hành trình đại học"
+                  />
+                  <figcaption>Ngày nhập học</figcaption>
+                </figure>
+                <figure>
+                  <img
+                    src="anhthukhoadauvao.jpg"
+                    alt="Ảnh nhận danh hiệu thủ khoa đầu vào"
+                    loading="lazy"
+                    decoding="async"
+                    data-caption="2022 - Thủ khoa đầu vào, một khởi đầu nhiều kỳ vọng"
+                  />
+                  <figcaption>Thủ khoa đầu vào</figcaption>
+                </figure>
+              </div>
+              <div class="year-copy">
+                <span>Chương mở đầu</span>
+                <h3>Từ tân sinh viên tới lời hứa phải cố gắng thật bền.</h3>
+                <p>
+                  Năm 2022 bắt đầu bằng cảm giác vừa lạ vừa háo hức. Bức ảnh nhập học giữ lại khoảnh
+                  khắc đầu tiên, còn danh hiệu thủ khoa đầu vào như một lời nhắc dịu dàng rằng chặng
+                  đường phía trước xứng đáng được đi thật nghiêm túc.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <article class="year-block reveal">
+            <div class="year-marker"><time>2023</time></div>
+            <div class="year-card">
+              <div class="year-gallery">
+                <figure>
+                  <img
+                    src="anhdiquansuhenamnhat.jpg"
+                    alt="Ảnh tập thể trong kỳ quân sự hè năm nhất"
+                    loading="lazy"
+                    decoding="async"
+                    data-caption="2023 - Mùa hè quân sự năm nhất"
+                  />
+                  <figcaption>Mùa hè quân sự</figcaption>
+                </figure>
+                <figure>
+                  <img
+                    src="anhtruockhinghitetnamnhat.jpg"
+                    alt="Ảnh tập thể trước kỳ nghỉ Tết năm nhất"
+                    loading="lazy"
+                    decoding="async"
+                    data-caption="2023 - Trước kỳ nghỉ Tết đầu tiên của năm nhất"
+                  />
+                  <figcaption>Tết năm nhất</figcaption>
+                </figure>
+              </div>
+              <div class="year-copy">
+                <span>Năm nhất</span>
+                <h3>Những người bạn đầu tiên và nhịp sống đại học bắt đầu rõ nét.</h3>
+                <p>
+                  Sau những buổi học đầu, năm nhất dần có thêm những chuyến đi, những lần tập thể
+                  cùng nhau đứng vào một khung hình và những kỷ niệm rất đời thường làm đại học trở
+                  nên gần gũi hơn.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <article class="year-block reveal">
+            <div class="year-marker"><time>2024</time></div>
+            <div class="year-card">
+              <div class="year-gallery">
+                <figure>
+                  <img
+                    src="anhtatniennam2.jpg"
+                    alt="Ảnh tập thể tất niên năm hai"
+                    loading="lazy"
+                    decoding="async"
+                    data-caption="2024 - Tất niên năm hai, khi mọi người đã thân thuộc hơn"
+                  />
+                  <figcaption>Tất niên năm hai</figcaption>
+                </figure>
+                <figure>
+                  <img
+                    src="anhdulichlanggombattrang2.jpg"
+                    alt="Ảnh trải nghiệm làm gốm trong chuyến đi Bát Tràng"
+                    loading="lazy"
+                    decoding="async"
+                    data-caption="2024 - Chuyến đi Bát Tràng, một ngày học cách làm chậm lại"
+                  />
+                  <figcaption>Bát Tràng</figcaption>
+                </figure>
+              </div>
+              <div class="year-copy">
+                <span>Năm hai</span>
+                <h3>Khi việc học đi cùng những khoảnh khắc biết tận hưởng.</h3>
+                <p>
+                  Năm hai là lúc mọi thứ vào guồng hơn: học tập đều đặn hơn, bạn bè thân hơn, những
+                  chuyến đi nhỏ cũng trở thành phần ký ức giúp cân bằng lại sau nhiều ngày bận rộn.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <article class="year-block reveal">
+            <div class="year-marker"><time>2025</time></div>
+            <div class="year-card">
+              <div class="year-gallery">
+                <figure>
+                  <img
+                    src="anhquanquansimplescience.jpg"
+                    alt="Ảnh tập thể tại chương trình Simple Science"
+                    loading="lazy"
+                    decoding="async"
+                    data-caption="2025 - Simple Science, một dấu ấn hoạt động khoa học"
+                  />
+                  <figcaption>Simple Science</figcaption>
+                </figure>
+                <figure>
+                  <img
+                    src="anhtatniennam3.jpg"
+                    alt="Ảnh tập thể tất niên năm ba"
+                    loading="lazy"
+                    decoding="async"
+                    data-caption="2025 - Tất niên năm ba, một buổi tối nhiều tiếng cười"
+                  />
+                  <figcaption>Tất niên năm ba</figcaption>
+                </figure>
+              </div>
+              <div class="year-copy">
+                <span>Năm ba</span>
+                <h3>Thử sức nhiều hơn và học cách trưởng thành trong từng việc nhỏ.</h3>
+                <p>
+                  Đây là chặng của hoạt động, đề tài, trách nhiệm và những lần phải tự tin hơn trước
+                  đám đông. Thành tích không chỉ nằm ở giấy chứng nhận, mà còn nằm ở cách mình lớn
+                  lên sau mỗi lần thử sức.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <article class="year-block reveal">
+            <div class="year-marker"><time>2026</time></div>
+            <div class="year-card">
+              <div class="year-gallery">
+                <figure>
+                  <img
+                    src="anhchiatay4namdaihoc.jpg"
+                    alt="Ảnh tập thể trong buổi chia tay bốn năm đại học"
+                    loading="lazy"
+                    decoding="async"
+                    data-caption="2026 - Chia tay bốn năm đại học"
+                  />
+                  <figcaption>Chia tay bốn năm</figcaption>
+                </figure>
+                <figure>
+                  <img
+                    src="anhtatniennamcuoi.jpg"
+                    alt="Ảnh tập thể tất niên năm cuối"
+                    loading="lazy"
+                    decoding="async"
+                    data-caption="2026 - Tất niên năm cuối trước ngày rẽ lối"
+                  />
+                  <figcaption>Tất niên năm cuối</figcaption>
+                </figure>
+              </div>
+              <div class="year-copy">
+                <span>Năm cuối</span>
+                <h3>Khép lại một hành trình để bước vào ngày tốt nghiệp.</h3>
+                <p>
+                  Năm cuối có khóa luận, có những lời chia tay, có sự biết ơn dành cho thầy cô, gia
+                  đình và bạn bè. Ngày 11.07.2026 vì thế không chỉ là một buổi lễ, mà là điểm sáng
+                  cuối cùng của hành trình 2022-2026.
+                </p>
+              </div>
+            </div>
+          </article>
+        </div>
+
         <div class="milestone-panel" id="milestonePanel" hidden>
-          <div class="milestone-list">
+          <div class="milestone-list" aria-label="Các mốc học bổng và thành tích">
             <article class="milestone-card reveal">
-              <img src="anhthukhoadauvao.jpg" alt="Ảnh nhận danh hiệu thủ khoa đầu vào" loading="lazy" />
+              <img
+                src="anhthukhoadauvao.jpg"
+                alt="Ảnh nhận danh hiệu thủ khoa đầu vào"
+                loading="lazy"
+                decoding="async"
+                data-caption="2022 - Thủ khoa đầu vào"
+              />
               <div>
                 <span>2022</span>
                 <h3>Thủ khoa đầu vào</h3>
@@ -175,7 +394,13 @@
             </article>
 
             <article class="milestone-card reveal">
-              <img src="hocbongadfnamnhat.jpg" alt="Ảnh nhận học bổng ADF năm nhất" loading="lazy" />
+              <img
+                src="hocbongadfnamnhat.jpg"
+                alt="Ảnh nhận học bổng ADF năm nhất"
+                loading="lazy"
+                decoding="async"
+                data-caption="2023 - Học bổng ADF năm nhất"
+              />
               <div>
                 <span>Năm nhất</span>
                 <h3>Học bổng ADF</h3>
@@ -184,7 +409,13 @@
             </article>
 
             <article class="milestone-card reveal">
-              <img src="anhhocbongadfnam2.jpg" alt="Ảnh nhận học bổng ADF năm hai" loading="lazy" />
+              <img
+                src="anhhocbongadfnam2.jpg"
+                alt="Ảnh nhận học bổng ADF năm hai"
+                loading="lazy"
+                decoding="async"
+                data-caption="2024 - Học bổng ADF năm hai"
+              />
               <div>
                 <span>Năm hai</span>
                 <h3>Tiếp tục giữ nhịp</h3>
@@ -193,7 +424,13 @@
             </article>
 
             <article class="milestone-card reveal">
-              <img src="anhhocbongvallet2024.jpg" alt="Ảnh nhận học bổng Vallet 2024" loading="lazy" />
+              <img
+                src="anhhocbongvallet2024.jpg"
+                alt="Ảnh nhận học bổng Vallet 2024"
+                loading="lazy"
+                decoding="async"
+                data-caption="2024 - Học bổng Vallet"
+              />
               <div>
                 <span>2024</span>
                 <h3>Học bổng Vallet</h3>
@@ -202,7 +439,13 @@
             </article>
 
             <article class="milestone-card reveal">
-              <img src="anhhocbongadfnam3.jpg" alt="Ảnh nhận học bổng ADF năm ba" loading="lazy" />
+              <img
+                src="anhhocbongadfnam3.jpg"
+                alt="Ảnh nhận học bổng ADF năm ba"
+                loading="lazy"
+                decoding="async"
+                data-caption="2025 - Học bổng ADF năm ba"
+              />
               <div>
                 <span>Năm ba</span>
                 <h3>ADF Scholarship</h3>
@@ -211,7 +454,13 @@
             </article>
 
             <article class="milestone-card reveal">
-              <img src="anhhocbongvallet2025.jpg" alt="Ảnh nhận học bổng Vallet 2025" loading="lazy" />
+              <img
+                src="anhhocbongvallet2025.jpg"
+                alt="Ảnh nhận học bổng Vallet 2025"
+                loading="lazy"
+                decoding="async"
+                data-caption="2025 - Học bổng Vallet"
+              />
               <div>
                 <span>2025</span>
                 <h3>Vallet 2025</h3>
@@ -220,7 +469,13 @@
             </article>
 
             <article class="milestone-card reveal">
-              <img src="anhhocbongadfnamcuoi.jpg" alt="Ảnh nhận học bổng ADF năm cuối" loading="lazy" />
+              <img
+                src="anhhocbongadfnamcuoi.jpg"
+                alt="Ảnh nhận học bổng ADF năm cuối"
+                loading="lazy"
+                decoding="async"
+                data-caption="2026 - Học bổng ADF năm cuối"
+              />
               <div>
                 <span>Năm cuối</span>
                 <h3>ADF năm cuối</h3>
@@ -229,7 +484,13 @@
             </article>
 
             <article class="milestone-card reveal">
-              <img src="anhocbongNHPnamcuoi.jpg" alt="Ảnh nhận học bổng NHP năm cuối" loading="lazy" />
+              <img
+                src="anhocbongNHPnamcuoi.jpg"
+                alt="Ảnh nhận học bổng NHP năm cuối"
+                loading="lazy"
+                decoding="async"
+                data-caption="2026 - Học bổng NHP năm cuối"
+              />
               <div>
                 <span>Năm cuối</span>
                 <h3>Học bổng NHP</h3>
@@ -535,6 +796,7 @@
           <article class="personal-card" id="personalCard" aria-live="polite" hidden>
             <div class="card-border">
               <p class="card-kicker">Thiệp mời dự lễ tốt nghiệp</p>
+              <div class="card-seal" aria-hidden="true">KH</div>
               <p class="card-label">Trân trọng kính mời</p>
               <h3 id="cardGuestName">Bạn</h3>
               <p class="card-body" id="cardInviteText">
@@ -552,6 +814,7 @@
                 </div>
               </dl>
               <p class="thank-you" id="thankYouText"></p>
+              <p class="card-signature">Ngô Khánh Hoa · K67 EEI</p>
               <div class="card-actions">
                 <button class="button quiet" type="button" id="copyPersonalBtn">
                   Sao chép thiệp mời

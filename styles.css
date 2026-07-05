@@ -179,9 +179,27 @@ h3 {
 
 .hero-copy {
   max-width: 570px;
-  margin-bottom: 28px;
+  margin-bottom: 18px;
   color: rgba(255, 253, 248, 0.84);
   font-size: clamp(1rem, 2vw, 1.18rem);
+}
+
+.hero-yearline {
+  display: grid;
+  grid-template-columns: auto minmax(90px, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+  width: min(460px, 100%);
+  margin-bottom: 28px;
+  color: rgba(255, 253, 248, 0.88);
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+.hero-yearline i {
+  height: 2px;
+  background:
+    linear-gradient(90deg, rgba(255, 253, 248, 0.16), rgba(194, 146, 63, 0.9), rgba(255, 253, 248, 0.16));
 }
 
 .hero-actions,
@@ -439,6 +457,7 @@ h3 {
 .section,
 .enrollment-section,
 .milestone-section,
+.journey-timeline-section,
 .mark-section,
 .memory-section,
 .gratitude-section,
@@ -457,6 +476,7 @@ h3 {
 .section-copy,
 .enrollment-copy,
 .memory-heading,
+.journey-heading,
 .mark-copy,
 .guestbook-copy,
 .rsvp-copy {
@@ -466,11 +486,24 @@ h3 {
 .section-copy p,
 .enrollment-copy p,
 .memory-heading p,
+.journey-heading p,
 .mark-copy p,
 .guestbook-copy p,
 .rsvp-copy p {
   color: var(--muted);
   font-size: 1.03rem;
+}
+
+.enrollment-section,
+.journey-timeline-section,
+.mark-section,
+.memory-section,
+.gratitude-section,
+.guestbook-section,
+.timeline,
+.rsvp-section {
+  content-visibility: auto;
+  contain-intrinsic-size: 920px;
 }
 
 .enrollment-section {
@@ -525,19 +558,205 @@ h3 {
   font-size: 1.15rem;
 }
 
-.milestone-section {
+.journey-timeline-section {
   display: block;
+  position: relative;
+  overflow: hidden;
   background:
-    linear-gradient(120deg, rgba(114, 0, 7, 0.08), rgba(14, 89, 100, 0.08)),
+    linear-gradient(180deg, rgba(255, 253, 248, 0.72), rgba(247, 242, 233, 0.94)),
     var(--paper);
+}
+
+.journey-heading {
+  margin-bottom: 28px;
+}
+
+.journey-heading h2 {
+  max-width: 840px;
 }
 
 .milestone-toggle {
   margin-top: 10px;
 }
 
+.journey-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 52px;
+}
+
+.journey-stats div {
+  min-height: 118px;
+  display: grid;
+  align-content: center;
+  gap: 4px;
+  padding: 20px;
+  border: 1px solid rgba(114, 0, 7, 0.16);
+  border-radius: 8px;
+  background: rgba(255, 253, 248, 0.78);
+  box-shadow: 0 14px 36px rgba(50, 0, 4, 0.08);
+}
+
+.journey-stats strong {
+  color: var(--wine);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  line-height: 1;
+}
+
+.journey-stats span {
+  color: var(--teal-deep);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.year-timeline {
+  position: relative;
+  display: grid;
+  gap: 30px;
+}
+
+.year-timeline::before {
+  content: "";
+  position: absolute;
+  top: 22px;
+  bottom: 22px;
+  left: 75px;
+  width: 2px;
+  background: linear-gradient(180deg, var(--wine), var(--gold), var(--teal));
+}
+
+.year-block {
+  position: relative;
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 26px;
+  align-items: start;
+}
+
+.year-marker {
+  position: sticky;
+  top: 96px;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+}
+
+.year-marker time {
+  width: 104px;
+  height: 104px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 253, 248, 0.6);
+  border-radius: 50%;
+  color: var(--white);
+  background:
+    linear-gradient(145deg, rgba(114, 0, 7, 0.98), rgba(14, 89, 100, 0.92));
+  box-shadow: 0 16px 36px rgba(50, 0, 4, 0.22);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.year-card {
+  display: grid;
+  grid-template-columns: minmax(0, 0.98fr) minmax(320px, 1fr);
+  overflow: hidden;
+  border: 1px solid rgba(33, 26, 26, 0.14);
+  border-radius: 8px;
+  background: var(--white);
+  box-shadow: 0 20px 58px rgba(50, 0, 4, 0.12);
+}
+
+.year-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  min-height: 360px;
+  background: var(--wine-dark);
+}
+
+.year-gallery figure {
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+}
+
+.year-gallery img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 360px;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(0.96) contrast(1.02);
+  transform: scale(1.01);
+}
+
+.year-gallery figure::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(25, 7, 8, 0.64), rgba(25, 7, 8, 0.06) 56%);
+  pointer-events: none;
+}
+
+.year-gallery figcaption {
+  position: absolute;
+  z-index: 1;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  padding: 8px 10px;
+  border: 1px solid rgba(255, 253, 248, 0.24);
+  border-radius: 6px;
+  color: var(--white);
+  background: rgba(50, 0, 4, 0.62);
+  backdrop-filter: blur(12px);
+  font-size: 0.78rem;
+  font-weight: 800;
+  pointer-events: none;
+}
+
+.year-copy {
+  display: grid;
+  align-content: center;
+  padding: clamp(26px, 4vw, 46px);
+}
+
+.year-copy span {
+  width: fit-content;
+  margin-bottom: 14px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  color: var(--white);
+  background: var(--teal);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.year-copy h3 {
+  margin-bottom: 16px;
+  color: var(--wine);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(1.9rem, 3.8vw, 3.2rem);
+  line-height: 1;
+}
+
+.year-copy p {
+  margin: 0;
+  color: var(--muted);
+}
+
 .milestone-panel {
-  margin-top: 34px;
+  margin-top: 42px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(33, 26, 26, 0.12);
   animation: panelFade 320ms ease both;
 }
 
@@ -825,6 +1044,7 @@ h3 {
   background:
     linear-gradient(0deg, rgba(25, 7, 8, 0.82), rgba(25, 7, 8, 0.08) 58%),
     linear-gradient(90deg, rgba(50, 0, 4, 0.28), rgba(50, 0, 4, 0));
+  pointer-events: none;
 }
 
 .memory-card div {
@@ -1005,18 +1225,54 @@ h3 {
   overflow: hidden;
   color: var(--ink);
   background:
-    linear-gradient(145deg, rgba(114, 0, 7, 0.08), rgba(14, 89, 100, 0.08)),
+    linear-gradient(145deg, rgba(114, 0, 7, 0.1), rgba(14, 89, 100, 0.08) 54%, rgba(194, 146, 63, 0.12)),
     var(--white);
 }
 
 .card-border {
+  position: relative;
+  overflow: hidden;
   margin: 14px;
   padding: clamp(26px, 5vw, 42px);
   border: 1px solid rgba(114, 0, 7, 0.26);
   border-radius: 8px;
   background:
-    linear-gradient(180deg, rgba(255, 253, 248, 0.9), rgba(255, 253, 248, 0.76)),
-    radial-gradient(circle at top right, rgba(194, 146, 63, 0.22), transparent 34%);
+    linear-gradient(180deg, rgba(255, 253, 248, 0.94), rgba(255, 253, 248, 0.82)),
+    repeating-linear-gradient(135deg, rgba(194, 146, 63, 0.12) 0 1px, transparent 1px 18px);
+}
+
+.card-border::before,
+.card-border::after {
+  content: "";
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(194, 146, 63, 0.86), transparent);
+}
+
+.card-border::before {
+  top: 18px;
+}
+
+.card-border::after {
+  bottom: 18px;
+}
+
+.card-seal {
+  width: 58px;
+  height: 58px;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 14px;
+  border: 1px solid rgba(114, 0, 7, 0.34);
+  border-radius: 50%;
+  color: var(--wine);
+  background: rgba(255, 253, 248, 0.72);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.28rem;
+  font-weight: 800;
+  letter-spacing: 0;
 }
 
 .card-kicker,
@@ -1097,6 +1353,15 @@ h3 {
   border-radius: 0 8px 8px 0;
   background: rgba(14, 89, 100, 0.08);
   font-weight: 600;
+}
+
+.card-signature {
+  margin: -4px 0 22px;
+  color: var(--wine);
+  text-align: center;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.24rem;
+  font-weight: 800;
 }
 
 .guestbook-section {
@@ -1393,6 +1658,7 @@ h3 {
   .section,
   .enrollment-section,
   .milestone-section,
+  .journey-timeline-section,
   .mark-section,
   .memory-section,
   .gratitude-section,
@@ -1414,6 +1680,7 @@ h3 {
   .section,
   .enrollment-section,
   .milestone-section,
+  .journey-timeline-section,
   .mark-section,
   .memory-section,
   .gratitude-section,
@@ -1434,6 +1701,45 @@ h3 {
 
   .milestone-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .journey-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .year-timeline {
+    gap: 22px;
+  }
+
+  .year-timeline::before {
+    left: 38px;
+  }
+
+  .year-block {
+    grid-template-columns: 76px minmax(0, 1fr);
+    gap: 14px;
+  }
+
+  .year-marker {
+    top: 78px;
+  }
+
+  .year-marker time {
+    width: 70px;
+    height: 70px;
+    font-size: 1.24rem;
+  }
+
+  .year-card {
+    grid-template-columns: 1fr;
+  }
+
+  .year-gallery {
+    min-height: 280px;
+  }
+
+  .year-gallery img {
+    min-height: 280px;
   }
 
   .guestbook-list {
@@ -1559,6 +1865,53 @@ h3 {
 
   .photo-caption span {
     color: var(--wine);
+  }
+
+  .journey-stats {
+    gap: 10px;
+  }
+
+  .journey-stats div {
+    min-height: 98px;
+    padding: 16px;
+  }
+
+  .year-timeline::before {
+    left: 29px;
+  }
+
+  .year-block {
+    grid-template-columns: 58px minmax(0, 1fr);
+    gap: 10px;
+  }
+
+  .year-marker {
+    top: 72px;
+  }
+
+  .year-marker time {
+    width: 54px;
+    height: 54px;
+    font-size: 0.98rem;
+  }
+
+  .year-gallery {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  .year-gallery img {
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 4 / 3;
+  }
+
+  .year-copy {
+    padding: 22px;
+  }
+
+  .year-copy h3 {
+    font-size: clamp(1.7rem, 10vw, 2.45rem);
   }
 
   .memory-grid {

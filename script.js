@@ -438,15 +438,23 @@ function setupLightbox() {
   const closeBtn = document.querySelector("#lightboxClose");
   const prevBtn = document.querySelector("#lightboxPrev");
   const nextBtn = document.querySelector("#lightboxNext");
-  const images = Array.from(document.querySelectorAll(".enrollment-media img, .memory-card img, .milestone-card img"));
+  const images = Array.from(
+    document.querySelectorAll(".enrollment-media img, .year-card img, .memory-card img, .milestone-card img"),
+  );
   let currentIndex = 0;
+
+  function getCaption(source) {
+    const figureCaption = source.closest("figure")?.querySelector("figcaption")?.textContent.trim();
+    const cardTitle = source.closest("article")?.querySelector("h3")?.textContent.trim();
+    return source.dataset.caption || figureCaption || cardTitle || source.alt || "";
+  }
 
   function open(index) {
     currentIndex = index;
     const source = images[currentIndex];
     image.src = source.currentSrc || source.src;
     image.alt = source.alt || "";
-    caption.textContent = source.alt || "";
+    caption.textContent = getCaption(source);
     lightbox.hidden = false;
     document.body.style.overflow = "hidden";
   }
@@ -569,25 +577,33 @@ const musicState = {
   isPlaying: false,
 };
 
-function playSoftNote(frequency, delay = 0) {
+function playSoftNote(frequency, delay = 0, duration = 1.8, volume = 0.034) {
   const context = musicState.context;
   const start = context.currentTime + delay;
+  const end = start + duration;
   const oscillator = context.createOscillator();
   const gain = context.createGain();
 
-  oscillator.type = "sine";
+  oscillator.type = "triangle";
   oscillator.frequency.value = frequency;
   gain.gain.setValueAtTime(0, start);
-  gain.gain.linearRampToValueAtTime(0.038, start + 0.08);
-  gain.gain.exponentialRampToValueAtTime(0.001, start + 1.8);
+  gain.gain.linearRampToValueAtTime(volume, start + 0.08);
+  gain.gain.exponentialRampToValueAtTime(0.001, end);
   oscillator.connect(gain).connect(context.destination);
   oscillator.start(start);
-  oscillator.stop(start + 1.9);
+  oscillator.stop(end + 0.08);
 }
 
 function scheduleMusicPhrase() {
-  [392, 494, 587, 740].forEach((frequency, index) => {
-    playSoftNote(frequency, index * 0.42);
+  const melody = [392, 494, 587, 659, 740, 659, 587, 494, 440, 392];
+
+  melody.forEach((frequency, index) => {
+    const delay = index * 0.36;
+    playSoftNote(frequency, delay, 1.7, index % 4 === 0 ? 0.038 : 0.03);
+
+    if (index % 3 === 0) {
+      playSoftNote(frequency / 2, delay + 0.04, 2.05, 0.014);
+    }
   });
 }
 
@@ -616,7 +632,7 @@ function setupMusic() {
 
     musicState.context = new AudioContext();
     scheduleMusicPhrase();
-    musicState.timer = window.setInterval(scheduleMusicPhrase, 3200);
+    musicState.timer = window.setInterval(scheduleMusicPhrase, 5200);
     musicState.isPlaying = true;
     button.setAttribute("aria-pressed", "true");
     button.textContent = "Tắt nhạc";
