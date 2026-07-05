@@ -891,15 +891,24 @@
           >
             <button class="card-close" type="button" id="closePersonalCardBtn" aria-label="Đóng thiệp mời">×</button>
             <div class="card-border">
-              <div class="card-ribbon" aria-hidden="true">
-                <span>Class of 2026</span>
-                <strong>K67 · EEI</strong>
+              <div class="poster-tape tape-left" aria-hidden="true"></div>
+              <div class="poster-tape tape-right" aria-hidden="true"></div>
+              <div class="paper-plane plane-left" aria-hidden="true"></div>
+              <div class="paper-plane plane-right" aria-hidden="true"></div>
+
+              <div class="card-banner" aria-hidden="true">
+                <span>Graduation</span>
               </div>
+
               <div class="card-head">
-                <p class="card-kicker">Graduation Invitation</p>
-                <div class="card-seal" aria-hidden="true">KH</div>
-                <p class="card-date">11.07.2026 · HUS</p>
+                <p class="card-kicker">Ngô Khánh Hoa</p>
+                <div class="card-seal" aria-hidden="true">K67<br />EEI</div>
               </div>
+
+              <figure class="card-photo" aria-label="Ảnh của Ngô Khánh Hoa">
+                <img src="anhchandung.jpg" alt="" loading="lazy" decoding="async" />
+              </figure>
+
               <div class="card-main">
                 <p class="card-label">Trân trọng kính mời</p>
                 <h3 id="cardGuestName">Bạn</h3>
@@ -907,7 +916,12 @@
                   Tới chung vui trong lễ tốt nghiệp của Ngô Khánh Hoa.
                 </p>
               </div>
-              <div class="card-divider" aria-hidden="true"><span></span></div>
+
+              <div class="card-title-band" aria-hidden="true">
+                <span>Thư mời tham dự</span>
+                <strong>Lễ tốt nghiệp</strong>
+              </div>
+
               <dl class="card-details">
                 <div>
                   <dt>Thời gian</dt>
@@ -919,21 +933,17 @@
                   <dd>Hội trường Ngụy Như Kon Tum</dd>
                   <small>19 Lê Thánh Tông, Cửa Nam, Hà Nội</small>
                 </div>
+                <div>
+                  <dt>Khách mời</dt>
+                  <dd id="cardGuestNameSmall">Bạn</dd>
+                  <small>Rất mong được gặp bạn trong ngày đặc biệt này.</small>
+                </div>
               </dl>
               <div class="thank-you-box">
                 <span>Lời cảm ơn riêng</span>
                 <p class="thank-you" id="thankYouText"></p>
               </div>
               <p class="card-signature">Ngô Khánh Hoa</p>
-              <div class="card-actions">
-                <button class="button quiet" type="button" id="copyPersonalBtn">
-                  Sao chép thiệp mời
-                </button>
-                <button class="button quiet" type="button" id="copyPersonalLinkBtn">
-                  Sao chép link thiệp
-                </button>
-                <button class="button quiet" type="button" id="printCardBtn">In / lưu PDF</button>
-              </div>
             </div>
           </article>
         </div>

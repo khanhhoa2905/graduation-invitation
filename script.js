@@ -279,6 +279,7 @@ function renderPersonalCard(name, options = {}) {
   const thankIndex = normalizeThankIndex(options.thankIndex, group);
   const card = document.querySelector("#personalCard");
   const cardGuestName = document.querySelector("#cardGuestName");
+  const cardGuestNameSmall = document.querySelector("#cardGuestNameSmall");
   const cardInviteText = document.querySelector("#cardInviteText");
   const thankYouText = document.querySelector("#thankYouText");
 
@@ -288,6 +289,9 @@ function renderPersonalCard(name, options = {}) {
   }
 
   cardGuestName.textContent = guestName;
+  if (cardGuestNameSmall) {
+    cardGuestNameSmall.textContent = guestName;
+  }
   cardInviteText.textContent = `Tới chung vui trong lễ tốt nghiệp của Ngô Khánh Hoa. Thiệp này được gửi riêng tới ${guestName}.`;
   thankYouText.textContent = getThankYouNote(guestName, group, thankIndex);
   card.dataset.guestName = guestName;
@@ -315,9 +319,6 @@ function setupRsvp() {
   const heroGuestGroupInput = document.querySelector("#heroGuestGroup");
   const copyInviteBtn = document.querySelector("#copyInviteBtn");
   const calendarBtn = document.querySelector("#calendarBtn");
-  const copyPersonalBtn = document.querySelector("#copyPersonalBtn");
-  const copyPersonalLinkBtn = document.querySelector("#copyPersonalLinkBtn");
-  const printCardBtn = document.querySelector("#printCardBtn");
   const personalCard = document.querySelector("#personalCard");
   const closePersonalCardBtn = document.querySelector("#closePersonalCardBtn");
 
@@ -340,36 +341,6 @@ function setupRsvp() {
   heroForm.addEventListener("submit", (event) => {
     event.preventDefault();
     renderPersonalCard(heroGuestNameInput.value, { group: heroGuestGroupInput.value });
-  });
-
-  copyPersonalBtn.addEventListener("click", async () => {
-    const name = personalCard.dataset.guestName;
-    if (!name) {
-      showToast("Bạn tạo thiệp trước nhé");
-      return;
-    }
-
-    const group = normalizeGroup(personalCard.dataset.group);
-    const thankIndex = normalizeThankIndex(personalCard.dataset.thankIndex, group);
-    await copyText(buildPersonalInviteText(name, group, thankIndex));
-    showToast("Đã sao chép thiệp mời");
-  });
-
-  copyPersonalLinkBtn.addEventListener("click", async () => {
-    const name = personalCard.dataset.guestName;
-    if (!name) {
-      showToast("Bạn tạo thiệp trước nhé");
-      return;
-    }
-
-    const group = normalizeGroup(personalCard.dataset.group);
-    const thankIndex = normalizeThankIndex(personalCard.dataset.thankIndex, group);
-    await copyText(getPersonalInviteUrl(name, group, thankIndex));
-    showToast("Đã sao chép link thiệp");
-  });
-
-  printCardBtn.addEventListener("click", () => {
-    window.print();
   });
 
   closePersonalCardBtn.addEventListener("click", closePersonalCard);
