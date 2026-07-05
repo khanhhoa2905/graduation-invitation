@@ -37,6 +37,7 @@ const thankYouNotesByGroup = {
 };
 
 const target = new Date(eventInfo.start);
+const inviteCardImagePath = "optimized/anhchandung.jpg";
 const countdownFields = {
   days: document.querySelector("#days"),
   hours: document.querySelector("#hours"),
@@ -205,6 +206,231 @@ function getPersonalInviteUrl(name, group, thankIndex) {
   return url.toString();
 }
 
+function loadImage(src) {
+  return new Promise((resolve, reject) => {
+    const image = new Image();
+    image.onload = () => resolve(image);
+    image.onerror = reject;
+    image.src = src;
+  });
+}
+
+function drawRoundedRect(context, x, y, width, height, radius) {
+  const safeRadius = Math.min(radius, width / 2, height / 2);
+  context.beginPath();
+  context.moveTo(x + safeRadius, y);
+  context.lineTo(x + width - safeRadius, y);
+  context.quadraticCurveTo(x + width, y, x + width, y + safeRadius);
+  context.lineTo(x + width, y + height - safeRadius);
+  context.quadraticCurveTo(x + width, y + height, x + width - safeRadius, y + height);
+  context.lineTo(x + safeRadius, y + height);
+  context.quadraticCurveTo(x, y + height, x, y + height - safeRadius);
+  context.lineTo(x, y + safeRadius);
+  context.quadraticCurveTo(x, y, x + safeRadius, y);
+  context.closePath();
+}
+
+function fillRoundedRect(context, x, y, width, height, radius, fillStyle) {
+  context.save();
+  drawRoundedRect(context, x, y, width, height, radius);
+  context.fillStyle = fillStyle;
+  context.fill();
+  context.restore();
+}
+
+function drawImageCover(context, image, x, y, width, height) {
+  const scale = Math.max(width / image.width, height / image.height);
+  const sourceWidth = width / scale;
+  const sourceHeight = height / scale;
+  const sourceX = (image.width - sourceWidth) / 2;
+  const sourceY = (image.height - sourceHeight) / 2;
+  context.drawImage(image, sourceX, sourceY, sourceWidth, sourceHeight, x, y, width, height);
+}
+
+function getWrappedLines(context, text, maxWidth) {
+  const words = String(text || "").split(/\s+/).filter(Boolean);
+  const lines = [];
+  let line = "";
+
+  words.forEach((word) => {
+    const nextLine = line ? `${line} ${word}` : word;
+    if (context.measureText(nextLine).width <= maxWidth || !line) {
+      line = nextLine;
+    } else {
+      lines.push(line);
+      line = word;
+    }
+  });
+
+  if (line) {
+    lines.push(line);
+  }
+
+  return lines;
+}
+
+function drawWrappedText(context, text, x, y, maxWidth, lineHeight, options = {}) {
+  const maxLines = options.maxLines || Infinity;
+  const lines = getWrappedLines(context, text, maxWidth);
+  const visibleLines = lines.slice(0, maxLines);
+
+  if (lines.length > maxLines) {
+    visibleLines[visibleLines.length - 1] = `${visibleLines[visibleLines.length - 1].replace(/[,.!?;:]*$/, "")}...`;
+  }
+
+  visibleLines.forEach((line, index) => {
+    context.fillText(line, x, y + index * lineHeight);
+  });
+
+  return y + visibleLines.length * lineHeight;
+}
+
+function drawCenteredWrappedText(context, text, centerX, y, maxWidth, lineHeight, options = {}) {
+  context.save();
+  context.textAlign = "center";
+  const nextY = drawWrappedText(context, text, centerX, y, maxWidth, lineHeight, options);
+  context.restore();
+  return nextY;
+}
+
+function sanitizeFileName(value) {
+  return normalizeName(value)
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/đ/g, "d")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "") || "khach-moi";
+}
+
+async function downloadPersonalInviteImage(name, group, thankIndex) {
+  if (document.fonts?.ready) {
+    await document.fonts.ready;
+  }
+
+  const image = await loadImage(inviteCardImagePath);
+  const canvas = document.createElement("canvas");
+  const context = canvas.getContext("2d");
+  const width = 1080;
+  const height = 1500;
+  canvas.width = width;
+  canvas.height = height;
+
+  const paperGradient = context.createLinearGradient(0, 0, 0, height);
+  paperGradient.addColorStop(0, "#f3f2ee");
+  paperGradient.addColorStop(1, "#e4e1d9");
+  context.fillStyle = paperGradient;
+  context.fillRect(0, 0, width, height);
+
+  context.globalAlpha = 0.2;
+  context.strokeStyle = "#ffffff";
+  for (let y = 24; y < height; y += 34) {
+    context.beginPath();
+    context.moveTo(0, y);
+    context.lineTo(width, y + 14);
+    context.stroke();
+  }
+  context.globalAlpha = 1;
+
+  context.save();
+  context.translate(620, 120);
+  context.rotate((8 * Math.PI) / 180);
+  context.fillStyle = "#2f7fb3";
+  context.beginPath();
+  context.moveTo(0, 30);
+  context.lineTo(58, 0);
+  context.lineTo(500, 20);
+  context.lineTo(474, 138);
+  context.lineTo(220, 116);
+  context.lineTo(30, 150);
+  context.closePath();
+  context.fill();
+  context.fillStyle = "#ffffff";
+  context.font = '900 70px "Be Vietnam Pro", sans-serif';
+  context.fillText("GRADUATION", 58, 95);
+  context.restore();
+
+  context.save();
+  context.translate(210, 104);
+  context.rotate((-16 * Math.PI) / 180);
+  context.fillStyle = "rgba(58, 51, 45, 0.68)";
+  context.fillRect(0, 0, 156, 34);
+  context.restore();
+
+  fillRoundedRect(context, 88, 258, 210, 126, 18, "#ffe8a9");
+  context.fillStyle = "#8c8a4c";
+  context.font = '800 36px "Playfair Display", serif';
+  context.fillText("NGÔ KHÁNH", 118, 312);
+  context.fillText("HOA", 152, 360);
+
+  context.save();
+  context.translate(250, 250);
+  context.rotate((-2 * Math.PI) / 180);
+  fillRoundedRect(context, -10, -10, 620, 520, 18, "rgba(255,255,255,0.94)");
+  drawImageCover(context, image, 0, 0, 600, 500);
+  context.restore();
+
+  fillRoundedRect(context, 118, 740, 844, 126, 18, "rgba(255,255,255,0.96)");
+  context.fillStyle = "#080808";
+  context.textAlign = "center";
+  context.font = '500 34px "Be Vietnam Pro", sans-serif';
+  context.fillText("THƯ MỜI THAM DỰ", 540, 790);
+  context.font = '900 62px "Be Vietnam Pro", sans-serif';
+  context.fillText("LỄ TỐT NGHIỆP", 540, 850);
+
+  fillRoundedRect(context, 214, 900, 652, 92, 18, "#ffe8a9");
+  context.fillStyle = "#8c8a4c";
+  context.font = '800 54px "Playfair Display", serif';
+  drawCenteredWrappedText(context, name, 540, 962, 590, 58, { maxLines: 1 });
+
+  const columns = [
+    ["Thời gian", "13:30 - 16:00", "Thứ bảy, 11.07.2026"],
+    ["Địa điểm", "Hội trường Ngụy Như Kon Tum", "19 Lê Thánh Tông, Hà Nội"],
+    ["Khách mời", name, "Rất mong được gặp bạn."],
+  ];
+  context.textAlign = "center";
+  columns.forEach((column, index) => {
+    const x = 180 + index * 360;
+    if (index > 0) {
+      context.strokeStyle = "rgba(33,26,26,0.7)";
+      context.lineWidth = 2;
+      context.beginPath();
+      context.moveTo(x - 180, 1044);
+      context.lineTo(x - 180, 1226);
+      context.stroke();
+    }
+    context.strokeStyle = "#211a1a";
+    context.lineWidth = 2;
+    drawRoundedRect(context, x - 78, 1038, 156, 42, 20);
+    context.stroke();
+    context.fillStyle = "#211a1a";
+    context.font = '700 26px "Be Vietnam Pro", sans-serif';
+    context.fillText(column[0], x, 1068);
+    context.font = '600 27px "Be Vietnam Pro", sans-serif';
+    drawCenteredWrappedText(context, column[1], x, 1140, 270, 34, { maxLines: 2 });
+    context.font = '500 23px "Be Vietnam Pro", sans-serif';
+    drawCenteredWrappedText(context, column[2], x, 1210, 270, 30, { maxLines: 2 });
+  });
+
+  context.fillStyle = "#211a1a";
+  context.font = '500 29px "Be Vietnam Pro", sans-serif';
+  drawCenteredWrappedText(context, getThankYouNote(name, group, thankIndex), 540, 1310, 820, 42, { maxLines: 4 });
+
+  context.fillStyle = "rgba(33,26,26,0.7)";
+  context.font = '800 32px "Playfair Display", serif';
+  context.fillText("Ngô Khánh Hoa", 540, 1450);
+
+  const blob = await new Promise((resolve) => canvas.toBlob(resolve, "image/png"));
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = `thiep-moi-${sanitizeFileName(name)}.png`;
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+  URL.revokeObjectURL(url);
+}
+
 function setupMapAndCalendar() {
   const mapLink = document.querySelector("#mapLink");
   const mapToggleBtn = document.querySelector("#mapToggleBtn");
@@ -321,6 +547,7 @@ function setupRsvp() {
   const calendarBtn = document.querySelector("#calendarBtn");
   const personalCard = document.querySelector("#personalCard");
   const closePersonalCardBtn = document.querySelector("#closePersonalCardBtn");
+  const downloadCardBtn = document.querySelector("#downloadCardBtn");
 
   function closePersonalCard() {
     personalCard.hidden = true;
@@ -341,6 +568,29 @@ function setupRsvp() {
   heroForm.addEventListener("submit", (event) => {
     event.preventDefault();
     renderPersonalCard(heroGuestNameInput.value, { group: heroGuestGroupInput.value });
+  });
+
+  downloadCardBtn.addEventListener("click", async () => {
+    const name = personalCard.dataset.guestName;
+    if (!name) {
+      showToast("Bạn tạo thiệp trước nhé");
+      return;
+    }
+
+    const group = normalizeGroup(personalCard.dataset.group);
+    const thankIndex = normalizeThankIndex(personalCard.dataset.thankIndex, group);
+    downloadCardBtn.disabled = true;
+    downloadCardBtn.textContent = "Đang tạo...";
+
+    try {
+      await downloadPersonalInviteImage(name, group, thankIndex);
+      showToast("Đã tải thiệp PNG");
+    } catch {
+      showToast("Chưa tạo được ảnh thiệp");
+    } finally {
+      downloadCardBtn.disabled = false;
+      downloadCardBtn.textContent = "Tải thiệp PNG";
+    }
   });
 
   closePersonalCardBtn.addEventListener("click", closePersonalCard);

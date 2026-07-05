@@ -3,6 +3,7 @@
   --wine-dark: #320004;
   --teal: #0e5964;
   --teal-deep: #073338;
+  --poster-blue: #2f7fb3;
   --gold: #c2923f;
   --paper: #f7f2e9;
   --white: #fffdf8;
@@ -102,11 +103,11 @@ a {
 
 .hero {
   position: relative;
-  min-height: 92svh;
+  min-height: 88svh;
   overflow: hidden;
   display: grid;
   align-items: end;
-  padding: 130px max(24px, calc((100vw - 1120px) / 2)) 42px;
+  padding: 122px max(24px, calc((100vw - 1120px) / 2)) 42px;
   color: var(--white);
   background: var(--wine-dark);
 }
@@ -122,20 +123,20 @@ a {
   height: 100%;
   object-fit: cover;
   object-position: center 52%;
-  filter: saturate(0.92) contrast(1.04);
+  filter: saturate(0.98) contrast(1.03);
 }
 
 .hero-shade {
   background:
-    linear-gradient(90deg, rgba(25, 7, 8, 0.94) 0%, rgba(40, 13, 12, 0.66) 42%, rgba(12, 20, 20, 0.16) 78%),
-    linear-gradient(0deg, rgba(50, 0, 4, 0.82) 0%, rgba(50, 0, 4, 0.08) 48%),
-    radial-gradient(circle at 80% 18%, rgba(194, 146, 63, 0.34), rgba(194, 146, 63, 0) 28%);
+    linear-gradient(90deg, rgba(25, 7, 8, 0.88) 0%, rgba(40, 13, 12, 0.62) 42%, rgba(12, 20, 20, 0.12) 78%),
+    linear-gradient(0deg, rgba(50, 0, 4, 0.76) 0%, rgba(50, 0, 4, 0.08) 48%),
+    radial-gradient(circle at 80% 18%, rgba(47, 127, 179, 0.28), rgba(47, 127, 179, 0) 30%);
 }
 
 .hero-content {
   position: relative;
   z-index: 3;
-  max-width: 690px;
+  max-width: 640px;
 }
 
 .eyebrow {
@@ -163,8 +164,8 @@ h2 {
 
 h1 {
   max-width: 10ch;
-  margin-bottom: 24px;
-  font-size: clamp(4.2rem, 12vw, 9.2rem);
+  margin-bottom: 18px;
+  font-size: clamp(4rem, 10vw, 7.8rem);
 }
 
 h2 {
@@ -179,7 +180,7 @@ h3 {
 
 .hero-copy {
   max-width: 570px;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
   color: rgba(255, 253, 248, 0.84);
   font-size: clamp(1rem, 2vw, 1.18rem);
 }
@@ -190,10 +191,30 @@ h3 {
   align-items: center;
   gap: 12px;
   width: min(460px, 100%);
-  margin-bottom: 28px;
+  margin-bottom: 14px;
   color: rgba(255, 253, 248, 0.88);
   font-weight: 900;
   letter-spacing: 0.08em;
+}
+
+.hero-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.hero-pills span {
+  min-height: 34px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 12px;
+  border: 1px solid rgba(255, 253, 248, 0.28);
+  border-radius: 999px;
+  color: rgba(255, 253, 248, 0.9);
+  background: rgba(255, 253, 248, 0.1);
+  font-size: 0.8rem;
+  font-weight: 800;
 }
 
 .hero-yearline i {
@@ -213,12 +234,11 @@ h3 {
   display: grid;
   gap: 10px;
   max-width: 560px;
-  margin-top: 22px;
-  padding: 14px;
+  margin-top: 18px;
+  padding: 12px;
   border: 1px solid rgba(255, 253, 248, 0.24);
   border-radius: 8px;
-  background: rgba(255, 253, 248, 0.12);
-  backdrop-filter: blur(16px);
+  background: rgba(25, 7, 8, 0.42);
 }
 
 .hero-rsvp label {
@@ -580,16 +600,16 @@ h3 {
 .journey-stats {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 12px;
-  margin-bottom: 52px;
+  gap: 10px;
+  margin-bottom: 34px;
 }
 
 .journey-stats div {
-  min-height: 118px;
+  min-height: 94px;
   display: grid;
   align-content: center;
   gap: 4px;
-  padding: 20px;
+  padding: 16px;
   border: 1px solid rgba(114, 0, 7, 0.16);
   border-radius: 8px;
   background: rgba(255, 253, 248, 0.78);
@@ -614,9 +634,9 @@ h3 {
 .year-nav {
   display: grid;
   grid-template-columns: repeat(5, minmax(104px, 1fr));
-  gap: 8px;
-  margin-bottom: 28px;
-  padding: 10px;
+  gap: 6px;
+  margin-bottom: 22px;
+  padding: 8px;
   border: 1px solid rgba(33, 26, 26, 0.12);
   border-radius: 8px;
   background: rgba(255, 253, 248, 0.72);
@@ -625,7 +645,7 @@ h3 {
 
 .year-tab {
   position: relative;
-  min-height: 62px;
+  min-height: 54px;
   display: grid;
   align-content: center;
   justify-items: center;
@@ -653,7 +673,7 @@ h3 {
 }
 
 .year-tab:hover {
-  transform: translateY(-2px);
+  transform: translateY(-1px);
   background: rgba(14, 89, 100, 0.08);
 }
 
@@ -671,7 +691,7 @@ h3 {
 
 .year-tab span {
   font-family: "Playfair Display", Georgia, serif;
-  font-size: 1.5rem;
+  font-size: 1.34rem;
   font-weight: 800;
   line-height: 1;
 }
@@ -693,7 +713,7 @@ h3 {
 
 .year-block.is-active {
   display: grid;
-  animation: timelinePanelIn 360ms ease both;
+  animation: timelinePanelIn 260ms ease both;
 }
 
 .year-marker {
@@ -702,8 +722,8 @@ h3 {
 
 .year-block.is-active .year-gallery figure {
   opacity: 0;
-  transform: translateY(18px) scale(0.98);
-  animation: timelineImageIn 540ms ease forwards;
+  transform: translateY(10px) scale(0.99);
+  animation: timelineImageIn 320ms ease forwards;
 }
 
 .year-block.is-active .year-gallery figure:nth-child(2) {
@@ -712,8 +732,8 @@ h3 {
 
 .year-block.is-active .year-copy > * {
   opacity: 0;
-  transform: translateY(12px);
-  animation: timelineTextIn 480ms ease forwards;
+  transform: translateY(8px);
+  animation: timelineTextIn 280ms ease forwards;
 }
 
 .year-block.is-active .year-copy > *:nth-child(2) {
@@ -727,18 +747,18 @@ h3 {
 .year-card {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 0.98fr) minmax(320px, 1fr);
+  grid-template-columns: minmax(0, 0.95fr) minmax(320px, 1fr);
   overflow: hidden;
   border: 1px solid rgba(33, 26, 26, 0.14);
   border-radius: 8px;
   background: var(--white);
-  box-shadow: 0 20px 58px rgba(50, 0, 4, 0.12);
+  box-shadow: 0 14px 38px rgba(50, 0, 4, 0.1);
 }
 
 .year-gallery {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  min-height: 360px;
+  min-height: 330px;
   background: var(--wine-dark);
 }
 
@@ -752,7 +772,7 @@ h3 {
   display: block;
   width: 100%;
   height: 100%;
-  min-height: 360px;
+  min-height: 330px;
   object-fit: cover;
   object-position: center;
   filter: saturate(0.96) contrast(1.02);
@@ -777,8 +797,7 @@ h3 {
   border: 1px solid rgba(255, 253, 248, 0.24);
   border-radius: 6px;
   color: var(--white);
-  background: rgba(50, 0, 4, 0.62);
-  backdrop-filter: blur(12px);
+  background: rgba(50, 0, 4, 0.72);
   pointer-events: none;
 }
 
@@ -803,7 +822,7 @@ h3 {
 .year-copy {
   display: grid;
   align-content: center;
-  padding: clamp(26px, 4vw, 46px);
+  padding: clamp(24px, 3.6vw, 40px);
 }
 
 .year-copy span {
@@ -823,7 +842,7 @@ h3 {
   margin-bottom: 16px;
   color: var(--wine);
   font-family: "Playfair Display", Georgia, serif;
-  font-size: clamp(1.9rem, 3.8vw, 3.2rem);
+  font-size: clamp(1.8rem, 3.4vw, 2.75rem);
   line-height: 1;
 }
 
@@ -1091,7 +1110,9 @@ h3 {
 
 .memory-section {
   display: block;
-  background: #fdfbf6;
+  background:
+    linear-gradient(180deg, rgba(247, 242, 233, 0.5), rgba(255, 253, 248, 0.96)),
+    #fdfbf6;
 }
 
 .memory-heading {
@@ -1101,36 +1122,59 @@ h3 {
 .memory-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  grid-auto-rows: 260px;
-  gap: 16px;
+  gap: 22px;
+  align-items: start;
 }
 
 .memory-card {
   position: relative;
-  overflow: hidden;
-  min-height: 240px;
+  overflow: visible;
+  min-height: 0;
+  display: grid;
+  gap: 12px;
+  padding: 12px 12px 18px;
   border-radius: 8px;
-  color: var(--white);
-  background: var(--wine-dark);
-  box-shadow: 0 16px 42px rgba(50, 0, 4, 0.14);
+  color: var(--ink);
+  background: rgba(255, 253, 248, 0.92);
+  box-shadow: 0 16px 38px rgba(50, 0, 4, 0.12);
+  transform: rotate(-1.2deg);
+}
+
+.memory-card::before {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  top: -12px;
+  left: 50%;
+  width: 82px;
+  height: 24px;
+  background: rgba(194, 146, 63, 0.32);
+  transform: translateX(-50%) rotate(2deg);
+}
+
+.memory-card:nth-child(2n) {
+  transform: rotate(1.1deg);
+}
+
+.memory-card:nth-child(3n) {
+  transform: rotate(-0.5deg);
 }
 
 .memory-card.feature {
   grid-column: span 2;
-  grid-row: span 2;
 }
 
 .memory-card.tall {
-  grid-row: span 2;
+  grid-row: auto;
 }
 
 .memory-card img {
   width: 100%;
-  height: 100%;
   display: block;
+  aspect-ratio: 4 / 3;
   object-fit: cover;
-  filter: saturate(0.94) contrast(1.02);
-  transform: scale(1.01);
+  border-radius: 6px;
+  filter: saturate(0.96) contrast(1.02);
 }
 
 .memory-card.feature img {
@@ -1138,44 +1182,40 @@ h3 {
 }
 
 .memory-card.tall img {
+  aspect-ratio: 3 / 4;
   object-position: center 30%;
 }
 
 .memory-card::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(0deg, rgba(25, 7, 8, 0.82), rgba(25, 7, 8, 0.08) 58%),
-    linear-gradient(90deg, rgba(50, 0, 4, 0.28), rgba(50, 0, 4, 0));
-  pointer-events: none;
+  content: none;
 }
 
 .memory-card div {
-  position: absolute;
+  position: relative;
   z-index: 1;
-  left: 18px;
-  right: 18px;
-  bottom: 18px;
+  display: grid;
+  gap: 6px;
 }
 
 .memory-card span {
   display: block;
-  margin-bottom: 8px;
-  color: var(--gold);
+  margin-bottom: 0;
+  color: var(--poster-blue);
 }
 
 .memory-card h3 {
-  margin-bottom: 8px;
+  margin-bottom: 0;
+  color: var(--wine);
   font-family: "Playfair Display", Georgia, serif;
-  font-size: clamp(1.45rem, 3vw, 2.5rem);
+  font-size: clamp(1.28rem, 2.1vw, 1.86rem);
   line-height: 1;
 }
 
 .memory-card p {
   max-width: 540px;
   margin: 0;
-  color: rgba(255, 253, 248, 0.78);
+  color: var(--muted);
+  font-size: 0.92rem;
 }
 
 .timeline {
@@ -1354,6 +1394,26 @@ h3 {
   cursor: pointer;
   font-size: 2rem;
   line-height: 1;
+}
+
+.card-download {
+  position: fixed;
+  z-index: 2;
+  left: 18px;
+  bottom: 18px;
+  min-height: 46px;
+  padding: 0 18px;
+  border: 1px solid rgba(255, 253, 248, 0.34);
+  border-radius: 8px;
+  color: var(--white);
+  background: rgba(47, 127, 179, 0.86);
+  cursor: pointer;
+  font-weight: 900;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.22);
+}
+
+.card-download:hover {
+  background: var(--poster-blue);
 }
 
 .card-border {
@@ -1948,8 +2008,8 @@ h3 {
   opacity: 0;
   transform: translateY(24px);
   transition:
-    opacity 700ms ease,
-    transform 700ms ease;
+    opacity 500ms ease,
+    transform 500ms ease;
 }
 
 .reveal.visible {
@@ -1977,7 +2037,7 @@ h3 {
   }
 
   .hero {
-    min-height: 94svh;
+    min-height: 88svh;
     padding: 120px 20px 32px;
   }
 
@@ -1993,6 +2053,10 @@ h3 {
 
   .hero-content {
     max-width: 100%;
+  }
+
+  .hero-pills {
+    margin-bottom: 20px;
   }
 
   .hero-sash {
@@ -2078,7 +2142,7 @@ h3 {
 
   .memory-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    grid-auto-rows: 230px;
+    gap: 18px;
   }
 
   .milestone-list {
@@ -2114,7 +2178,6 @@ h3 {
   .memory-card.feature,
   .memory-card.tall {
     grid-column: span 2;
-    grid-row: span 1;
   }
 
   .memory-card.feature {
@@ -2280,7 +2343,6 @@ h3 {
 
   .memory-grid {
     grid-template-columns: 1fr;
-    grid-auto-rows: auto;
   }
 
   .milestone-list {
@@ -2292,6 +2354,7 @@ h3 {
   .memory-card.tall {
     grid-column: auto;
     min-height: 0;
+    transform: none;
   }
 
   .memory-card img {
@@ -2331,6 +2394,14 @@ h3 {
 
   .personal-card {
     padding: 16px;
+  }
+
+  .card-download {
+    left: 12px;
+    bottom: 12px;
+    min-height: 42px;
+    padding: 0 14px;
+    font-size: 0.86rem;
   }
 
   .card-border {
@@ -2437,6 +2508,7 @@ h3 {
   .rsvp-copy,
   .rsvp-form,
   .card-close,
+  .card-download,
   .toast {
     display: none !important;
   }
