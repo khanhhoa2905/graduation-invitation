@@ -1470,37 +1470,6 @@ h3 {
   line-height: 1;
 }
 
-.card-tools {
-  position: fixed;
-  z-index: 2;
-  left: 18px;
-  bottom: 18px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.card-tool {
-  min-height: 46px;
-  padding: 0 18px;
-  border: 1px solid rgba(255, 253, 248, 0.34);
-  border-radius: 8px;
-  color: var(--white);
-  background: rgba(50, 0, 4, 0.74);
-  cursor: pointer;
-  font-weight: 900;
-  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.22);
-}
-
-.card-tool.primary {
-  background: rgba(47, 127, 179, 0.86);
-}
-
-.card-tool:hover,
-.card-tool.primary:hover {
-  background: var(--poster-blue);
-}
-
 .card-border {
   position: relative;
   overflow: hidden;
@@ -2483,17 +2452,6 @@ h3 {
     padding: 16px;
   }
 
-  .card-tools {
-    left: 12px;
-    bottom: 12px;
-  }
-
-  .card-tool {
-    min-height: 42px;
-    padding: 0 14px;
-    font-size: 0.86rem;
-  }
-
   .card-border {
     padding: 26px 16px 24px;
   }
@@ -2598,7 +2556,6 @@ h3 {
   .rsvp-copy,
   .rsvp-form,
   .card-close,
-  .card-tools,
   .toast {
     display: none !important;
   }

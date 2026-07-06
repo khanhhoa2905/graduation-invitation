@@ -538,9 +538,6 @@ function setupRsvp() {
   const calendarBtn = document.querySelector("#calendarBtn");
   const personalCard = document.querySelector("#personalCard");
   const closePersonalCardBtn = document.querySelector("#closePersonalCardBtn");
-  const editCardBtn = document.querySelector("#editCardBtn");
-  const downloadCardBtn = document.querySelector("#downloadCardBtn");
-  let activeNameInput = heroGuestNameInput;
 
   function closePersonalCard() {
     personalCard.hidden = true;
@@ -557,7 +554,6 @@ function setupRsvp() {
 
   function handleInviteSubmit(nameInput, groupInput, button) {
     const guestName = normalizeName(nameInput.value);
-    activeNameInput = nameInput;
 
     if (!isValidGuestName(guestName)) {
       showToast("Bạn nhập đầy đủ họ tên nhé");
@@ -594,35 +590,6 @@ function setupRsvp() {
   heroForm.addEventListener("submit", (event) => {
     event.preventDefault();
     handleInviteSubmit(heroGuestNameInput, heroGuestGroupInput, heroSubmitBtn);
-  });
-
-  editCardBtn.addEventListener("click", () => {
-    closePersonalCard();
-    activeNameInput.focus();
-    activeNameInput.select();
-  });
-
-  downloadCardBtn.addEventListener("click", async () => {
-    const name = personalCard.dataset.guestName;
-    if (!name) {
-      showToast("Bạn tạo thiệp trước nhé");
-      return;
-    }
-
-    const group = normalizeGroup(personalCard.dataset.group);
-    const thankIndex = normalizeThankIndex(personalCard.dataset.thankIndex, group);
-    downloadCardBtn.disabled = true;
-    downloadCardBtn.textContent = "Đang tạo...";
-
-    try {
-      await downloadPersonalInviteImage(name, group, thankIndex);
-      showToast("Đã tải thiệp PNG");
-    } catch {
-      showToast("Chưa tạo được ảnh thiệp");
-    } finally {
-      downloadCardBtn.disabled = false;
-      downloadCardBtn.textContent = "Tải thiệp PNG";
-    }
   });
 
   closePersonalCardBtn.addEventListener("click", closePersonalCard);
