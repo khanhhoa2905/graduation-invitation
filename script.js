@@ -367,13 +367,13 @@ async function downloadPersonalInviteImage(name, group, thankIndex) {
   drawImageCover(context, image, 0, 0, 600, 500);
   context.restore();
 
-  fillRoundedRect(context, 148, 744, 784, 112, 18, "rgba(255,255,255,0.96)");
+  fillRoundedRect(context, 178, 748, 724, 102, 18, "rgba(255,255,255,0.96)");
   context.fillStyle = "#080808";
   context.textAlign = "center";
   context.font = '500 30px "Be Vietnam Pro", sans-serif';
   context.fillText("THƯ MỜI THAM DỰ", 540, 788);
-  context.font = '900 48px "Be Vietnam Pro", sans-serif';
-  context.fillText("LỄ TỐT NGHIỆP", 540, 838);
+  context.font = '900 38px "Be Vietnam Pro", sans-serif';
+  context.fillText("LỄ TỐT NGHIỆP", 540, 834);
 
   fillRoundedRect(context, 214, 900, 652, 92, 18, "#ffe8a9");
   context.fillStyle = "#8c8a4c";

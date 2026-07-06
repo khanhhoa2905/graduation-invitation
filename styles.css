@@ -1721,9 +1721,9 @@ h3 {
 }
 
 .card-title-band {
-  width: min(560px, 92%);
-  margin: 0 auto 28px;
-  padding: 12px 20px 15px;
+  width: min(500px, 88%);
+  margin: 0 auto 26px;
+  padding: 11px 18px 14px;
   color: #080808;
   background: rgba(255, 255, 255, 0.96);
   border-radius: 8px;
@@ -1745,7 +1745,7 @@ h3 {
 }
 
 .card-title-band strong {
-  font-size: clamp(1.9rem, 5.8vw, 3.05rem);
+  font-size: clamp(1.55rem, 4.6vw, 2.45rem);
   font-weight: 900;
   letter-spacing: 0;
 }
